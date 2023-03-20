@@ -3,7 +3,6 @@
     width: 95%;
     max-width: 600px;
     max-height: 520px;
-
     border-radius: 10px;
     font-size: 18px;
     font-family: "Quicksand", sans-serif;
@@ -57,10 +56,7 @@
         transform: translateY(0) scale(1);
     }
   }
-  
-  .tab-body.active {
-    display: block;
-  }
+
   
   .row {
     display: flex;
@@ -114,7 +110,6 @@
     min-width: fit-content;
     height: 45px;
     border-radius: 50px;
-    box-shadow: 0 16px 22px -17px var(--primary);;
     background: var(--primary);
     border: none;
     outline: none;
@@ -129,46 +124,7 @@
       color: white;
   }
   
-  .login-btn:focus {
-      outline: none;
-  }
-
   .tab-body p {
     text-align: center;
   }
   
-  .tab-footer {
-    position: absolute;
-    bottom: 5%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    height: 30px;
-    display: flex;
-  }
-  
-  .tab-link {
-    text-decoration: none;
-    color: var(--primary);;
-    margin: 0 3%;
-  }
-  
-  .tab-link.active {
-    font-weight: bold;
-  }
-
-  header .btn{
-    background: var(--primary);
-    color: white;
-    font-weight: 600;
-  }
-
-  header .btn:hover{
-    background: var(--hover);
-    color: white;
-  }
-
-  header .modal-dialog{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
