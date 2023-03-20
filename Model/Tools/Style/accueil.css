@@ -1,0 +1,282 @@
+:root{
+    --primary : #F15B5C;
+    --secondary : #F7F7F7;
+    --black : #2D2D2D; 
+    --border : #E8E8E8;
+    --hover : #e33232; 
+}
+/* Barre de recherche */
+
+section.search-box{
+    background: white;
+    width: 95%;
+    margin: auto;
+    border-radius: 25px;
+}
+
+form {
+    display: flex;
+    padding: 20px 2%;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+form .box{
+    display: flex;
+    width: 95%;
+    margin-bottom: 15px;
+
+}
+
+select{
+    order: 2;
+    background: white;
+    border: var(--border) 1px solid;
+    border-radius: 25px;
+    width: 80%;
+    height: 35px;
+    padding: 0 15px;
+}
+
+form input[type="text"]{
+    width: 100%;
+    border-radius: 25px 0 0 25px;
+    height: 35px;
+    padding: 0 15px;
+    border: var(--border) 1px solid;
+    outline: none;
+}
+
+form input[type="submit"]{
+    min-width: 25px;
+    height: 100%;
+    border-radius: 0 25px 25px 0 ;
+    width: 45px;
+    border: none;
+    background: var(--primary);
+    transition: 500ms;
+}
+
+form input[type="submit"]:hover{
+    background: var(--hover);
+}
+
+button{
+    background: none;
+    border: none;
+    order: 2;
+    width: 15%;
+}
+
+button:hover{
+    color: var(--primary);
+}
+
+button i {
+    margin: 0 5px;
+}
+
+input[type="submit"], button{
+    cursor: pointer;
+}
+
+.backdrop-modal{
+    position: fixed;
+    background: #00000074;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+}
+
+.modal{
+    position: relative;
+    margin: auto;
+    max-width: 600px;
+    width: 95%;
+    height: 500px;
+    background: white;
+    top: 50%; 
+    transform: translateY(-50%);
+    border-radius: 25px;
+}
+
+
+    /*  Page Accueil Body */
+    .appart_pic{
+        width: 100%;
+    }
+    .small_pic{
+        width: 20%;
+    }
+    .pic_emp{
+        width: 80%;
+        margin: auto;
+        padding: auto;
+    }
+    .div_p{
+        display: flex;
+        text-align: center;
+    }
+    #div1, #div2{
+        margin-bottom: 5%;
+    }
+    .div_accueil{
+        border: 1px gainsboro solid;
+        border-radius: 15px;
+        width: 25%;
+        padding: 1%;
+        display: flex;
+        justify-content: space-around;
+    }
+    .div2{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
+    .p{
+        color: white;
+    }
+    .btn_rejoindre:hover{
+        scale: 1.15;
+        color: white;
+    }
+    .text_position{
+        background-color: rgba(0, 0, 0, 0.5);
+        padding: 5%;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
+    .span{
+        color: #F15B5C;
+    }
+    .btn_rejoindre{
+        color: white;
+        background-color: #F15B5C;
+        border-radius: 20px;
+        width: 80%;
+        padding: 4%;
+        margin: auto;
+    }
+    .title_accueil{
+        color: white;
+        text-shadow: 0.5px 0.5px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
+        text-decoration: underline;
+        text-decoration-color: #F15B5C;
+    }
+    body{
+        margin: 0;
+    }
+    .section1{
+        display: flex;
+        flex-direction: column;
+    }
+    .div_accueil{
+        width: 80%;
+        display: flex;
+        padding: 5% 1%;
+        justify-content: space-around;
+        margin: auto;
+        position: relative;
+    }
+    .pic_emp{
+        width: 100%;
+        margin: auto;
+    }
+    #pic_immo{
+        width: 30%;
+    }
+    #pic_cli{
+        position: absolute;
+        top: 20%; 
+        left: 10%;
+    }
+    .reducto{
+        margin-top: 50%;
+        margin-bottom: 0;
+    }
+    #pic_fr{
+        text-align: center;
+        position: absolute;
+        right: 20%;
+        top: 20%;
+    }
+    .title_accueil, h1{
+        font-family: 'Sen';
+    }
+    p{
+        font-size: large;
+        font-family: 'Sen';
+    }
+    .section2, .appart_title{
+        position: relative;
+        text-align: center;
+    }
+    .text_position, .title_accueil{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    /* plus de 768px */
+@media (min-width : 768px){
+    body{
+        margin: 0;
+    }
+    .appart_pic{
+        width: 100%;
+    }
+    .small_pic{
+        width: 20%;
+    }
+    .pic_emp{
+        width: 80%;
+        margin: auto;
+        padding: auto;
+    }
+    #div1, #div2{
+        margin-bottom: 5%;
+    }
+    .section1{
+        display: flex;
+        flex-direction: row !important;
+    }
+    .div_accueil{
+        margin: 2% !important;
+    }
+    select{
+        order: 0;
+        width: 10%;
+        min-width: 110px;
+    }
+
+    form {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    form .box{  
+        margin-bottom: 0;
+        margin: 0 5px  0 15px;
+    }
+
+    select{
+        width: 20%;
+    }
+
+    form input[type="submit"]{
+        width: max-content;
+        padding: 0 3vw;
+        color: white;
+        font-weight: 700;
+    }
+
+    button{
+        width: 10%;
+    }     
+}
+
