@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Sen:wght@400;700;800&family=Sora&display=swap');
+:root{
+    --primary : #F15B5C;
+    --secondary : #F7F7F7;
+    --black : #2D2D2D; 
+    --border : #E8E8E8;
+    --hover : #e33232; 
+}
+
+
+*{
+box-sizing: border-box;
+font-family: 'Sen', sans-serif;
+/* Logo font : font-family: 'Sora', sans-serif; */
+}
+
+body{
+    background-color: var(--secondary);
+    background-image: url('../../Tools/Assets/topography.svg');
+    min-width: 370px;
+}
+
+main{
+    max-width: 1400px;
+    margin: auto;
+}
+
+
+
+
