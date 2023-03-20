@@ -5,6 +5,7 @@
     --border : #E8E8E8;
     --hover : #e33232; 
 }
+/* Barre de recherche */
 
 section.search-box{
     background: white;
@@ -102,7 +103,7 @@ input[type="submit"], button{
 }
 
 
-    /*     Page Accueil  */
+    /*  Page Accueil Body */
     .appart_pic{
         width: 100%;
     }
