@@ -146,7 +146,8 @@
         </article>
     </section>
     </main>
+  <script src="../Tools/Js/search.js" defer></script>
 <?php 
-$style = '../../Tools/Style/resultat.css';
+$style = '../Tools/Style/resultat.css';
 $content = ob_get_clean();
 require './Template.php' ?>

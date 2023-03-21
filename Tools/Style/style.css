@@ -11,8 +11,9 @@
 *{
 box-sizing: border-box;
     font-family: 'Sen', sans-serif;
-/* Logo font : font-family: 'Sora', sans-serif; */
+
 }
+
 
 body{
     background-color: var(--secondary);
@@ -21,9 +22,140 @@ body{
 }
 
 main{
+    min-height: 70vh;
     max-width: 1400px;
     margin: auto;
 }
+
+header{
+    background: white;
+    border-bottom: 5px var(--border) solid;
+}
+
+.divHeader {
+    display: flex;
+    justify-content: space-between;
+    /* pour ancrer à droite */
+    align-items: center;
+    max-width: 1400px;
+    margin: auto;
+    /* pour centrer verticalement */
+}
+
+.title1{
+    color: var(--primary);
+    font-family: 'Sora', sans-serif;
+    font-size: 22px;
+}
+
+.logoHeader {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+    /* pour centrer horizontalement */
+}
+
+.logoHeader img {
+    width: 40px;
+    
+    /* pour éviter le dépassement de la largeur de la div */
+}
+.divHeader a{
+    color: var(--primary);
+    font-size: 18px;
+    text-decoration: none;
+    padding: 15px 10px;
+    margin-right: 10px;
+}
+
+.divHeader a:hover{
+    background: var(--secondary);
+}
+
+/* *******footer */
+footer{
+    background-color: #2D2D2D;
+    color: white;
+    width: 100%;
+    padding-top: 25px;
+    margin-top: 50px;
+}
+
+.divLogo{
+display: flex;
+flex-direction:row;
+justify-content: center;
+align-items: center;
+margin-bottom: 50px;
+}
+
+.logoFooter{
+  width: 60px; 
+}
+
+.adress{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+justify-content: center;
+}
+
+.span1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 30px;
+    font-size: 18px;
+}
+
+.span4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    color: var(--border);
+}
+
+/* styles pour les vues tablette et bureau */
+@media only screen and (min-width: 768px) {
+    /* .divHeader {
+        justify-content: space-evenly;
+    } */
+
+
+   footer {
+       display: grid;
+       grid-template-rows: 1fr 1fr 1fr;
+       grid-template-areas:
+           "c0 c0 c0"
+           "c1 c2 c2"
+           "c4 c4 c4";
+   }
+
+   .divLogo {
+       grid-area: c0;
+       justify-self: center;
+       align-self: center;
+       text-align: center;
+   }
+
+   .adress {
+       grid-area: c1;
+   }
+
+   .span1 {
+       grid-area: c2;
+   }
+
+   .span4 {
+       grid-area: c4;
+       text-align: center;
+   }
+    
+}
+
 
 
 

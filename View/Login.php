@@ -9,7 +9,7 @@
 
             <div class="tab-body" data-id="connexion">
                 <div class="icon">
-                    <img src="../../Tools/Assets/admin.png" alt="" srcset="">
+                    <img src="../Tools/Assets/admin.png" alt="" srcset="">
                 </div>
                 <form id="form-cnx">
                     <div class="row">
@@ -27,6 +27,6 @@
         </section> 
     </main>
 <?php 
-$style = '../../Tools/Style/login.css';
+$style = '../Tools/Style/login.css';
 $content = ob_get_clean();
 require './Template.php' ?>
