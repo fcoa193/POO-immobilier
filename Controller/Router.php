@@ -1,47 +1,52 @@
 <?php
-require_once 'Controller/Controller.php';
-require_once 'Vue/Vue.php';
+require_once 'Controller.php';
 
 class Routeur {
 
-  private $ctrl;
-
-
-  public function __construct() {
-    $this->ctrl = new Controller();
-  }
-
-  // Traite une requête entrante
-  public function routerRequete() {
-    try {
-      if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'billet') {
-          if (isset($_GET['id'])) {
-            $idBillet = intval($_GET['id']);
-            if ($idBillet != 0) {
-              $this->ctrlBillet->billet($idBillet);
+    private $controller;
+    
+    public function __construct() {
+      $this->controller = new Controller();
+      
+    }
+    
+    // Traite une requête entrante
+    public function routerRequete() {
+        try {
+            if (isset($_GET['action'])) {
+                if ($_GET['action'] == 'showAllProperty') {
+                    $this->controller->AllProperty();
+                }
+                else 
+                if ($_GET['action'] == 'deleteProperty') {
+                    $this->controller->deleteProperty();
+                }
+                else
+                if ($_GET['action'] == 'createProperty') {
+                    $this->controller->createProperty();
+                }
+                else 
+                if ($_GET['action'] == 'updateProperty') {
+                    $this->controller->updateProperty();
+                }
+                else
+                    throw new Exception("Action non valide");
             }
-            else
-              throw new Exception("Identifiant de billet non valide");
-          }
-          else
-            throw new Exception("Identifiant de billet non défini");
+            else {
+                $this->controller->accueil();  // action par défaut
+            }
         }
-        else
-          throw new Exception("Action non valide");
+        catch (Exception $e) {
+            erreur($e->getMessage());
       }
-      else {  // aucune action définie : affichage de l'accueil
-        $this->ctrlAccueil->accueil();
-      }
-    }
-    catch (Exception $e) {
-      $this->erreur($e->getMessage());
-    }
-  }
 
-  // Affiche une erreur
-  private function erreur($msgErreur) {
-    $vue = new Vue("Erreur");
-    $vue->generer(array('msgErreur' => $msgErreur));
-  }
+    }
+    
+    // Affiche une erreur
+    private function erreur($msgErreur) {
+        $vue = new Vue("Erreur");
+        $vue->generer(array('msgErreur' => $msgErreur));
+    }
 }
+
+
