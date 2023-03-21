@@ -1,0 +1,112 @@
+.divHeader {
+    display: flex;
+    justify-content: space-between;
+    /* pour ancrer à droite */
+    align-items: center;
+    width: 100%;
+    /* pour centrer verticalement */
+}
+
+.title1{
+    color:#F15B5C;
+}
+
+.logoHeader {
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
+
+    /* pour centrer horizontalement */
+}
+
+.logoHeader img {
+    width: 60px;
+    /* pour éviter le dépassement de la largeur de la div */
+}
+.divHeader a{
+    color: #F15B5C;
+}
+
+/* *******footer */
+footer{
+    background-color: #2D2D2D;
+    color: azure;
+    width: 100%;
+    height: 400px;
+}
+.divLogo{
+display: flex;
+flex-direction:row;
+justify-content: center;
+align-items: center;
+margin-top: 20px;
+margin-bottom: 50px;
+}
+
+.logoFooter{
+  width: 60px; 
+
+}
+
+.adress{
+ display: flex;
+ flex-direction: column;
+ align-items: center;
+justify-content: center;
+}
+
+.span1 {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: flex-start;
+    width: 100%;
+    margin-top: 30px;
+}
+
+.span4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 60px;
+
+}
+
+/* styles pour les vues tablette et bureau */
+@media only screen and (min-width: 768px) {
+    /* .divHeader {
+        justify-content: space-evenly;
+    } */
+
+
+   footer {
+       display: grid;
+       grid-template-rows: 1fr 1fr 1fr;
+       grid-template-areas:
+           "c0 c0 c0"
+           "c1 c2 c2"
+           "c4 c4 c4";
+   }
+
+   .divLogo {
+       grid-area: c0;
+       justify-self: center;
+       align-self: center;
+       text-align: center;
+   }
+
+   .adress {
+       grid-area: c1;
+   }
+
+   .span1 {
+       grid-area: c2;
+   }
+
+   .span4 {
+       grid-area: c4;
+       text-align: center;
+   }
+    
+}
+
