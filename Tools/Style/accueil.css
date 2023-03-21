@@ -1,17 +1,13 @@
-:root{
-    --primary : #F15B5C;
-    --secondary : #F7F7F7;
-    --black : #2D2D2D; 
-    --border : #E8E8E8;
-    --hover : #e33232; 
-}
-/* Barre de recherche */
-
+/*-----Barre de recherche-----*/
 section.search-box{
     background: white;
     width: 95%;
-    margin: auto;
+    margin: 15px auto;
+    margin-top: -45px;
+    position: relative;
     border-radius: 25px;
+    border: solid 1px var(--border);
+    box-shadow: 0px 0px 5px var(--border);
 }
 
 form {
@@ -25,7 +21,6 @@ form .box{
     display: flex;
     width: 95%;
     margin-bottom: 15px;
-
 }
 
 select{
@@ -80,6 +75,8 @@ input[type="submit"], button{
     cursor: pointer;
 }
 
+
+/*-----Modal-----*/
 .backdrop-modal{
     position: fixed;
     background: #00000074;
@@ -88,84 +85,238 @@ input[type="submit"], button{
     width: 100%;
     height: 100vh;
     display: none;
+    z-index: 500;
 }
 
 .modal{
     position: relative;
     margin: auto;
+    min-width: 370px;
     max-width: 600px;
     width: 95%;
-    height: 500px;
     background: white;
     top: 50%; 
     transform: translateY(-50%);
     border-radius: 25px;
+    padding: 50px 20px;
+    
 }
 
+.modal h2{
+    font-size: 20px;
+    margin: 0 0 35px 5%;
+}
 
+.modal h2 i{
+    margin-right: 10px;
+}
+
+form .form-control{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px; 
+    align-items: center;   
+}
+
+form .form-control > label{
+        width: 100px;
+       text-align: end;
+       font-weight: 700;
+}
+
+form .form-control > input[type="range"]{
+    width: 70%;
+    margin:  0 0 0 7%;
+}
+
+form .form-control .output{
+    width: 15%;
+    text-align: end;
+}
+
+form .form-control.type{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+form .form-control > div{
+    display: flex;
+    width: 85%;
+    margin:  0 0 0 7%;
+}
+
+form .form-control div div{
+    margin-right: 7%;
+}
+
+#close-filter{
+    background: var(--primary);
+    color: white;
+    padding: 10px;
+    min-width: min-content;
+    width: 30%;
+    font-weight: 700 ;
+    border-radius: 25px;
+    display: block;
+    margin: 30px auto 0 auto;
+    transition: 500ms;
+}
+
+#close-filter:hover{
+    background: var(--hover);
+}
+
+/*personnalisation des inputs*/
+form input[type="checkbox"] {
+    display: none;
+  }
+  
+  form input[type="checkbox"] + label {
+    position: relative;
+    z-index: 1000;
+    padding-left: 1.3rem;
+  }
+  
+  form input[type="checkbox"] + label::before,
+  form input[type="checkbox"] + label::after {
+      display: block;
+      position: absolute;
+      box-sizing: border-box;
+      bottom: 0;
+      left: 0;
+      content:'';
+      width: 1rem;
+      height: 1rem; 
+      cursor: pointer;
+  }
+  
+  form input[type="checkbox"] + label::before {
+      border: 1px solid var(--black);
+      border-radius: 5px;
+      padding: 2px;
+  }
+  
+  form input[type="checkbox"]:checked + label::after {
+      background-color: var(--primary);
+      border-radius: 5px;
+      content: '✔️';
+  }
+     
+  input[type=range]{
+      height: .5em;
+      color: #ffffff;
+      background: rgb(241, 241, 241);
+      border: 2px var(--border) solid;
+      border-radius: 10px;
+  }
+    
+  input[type=range]::-webkit-slider-thumb{
+      padding: 0;                                              /* largeur du bord */
+      border: 1px solid var(--primary);;
+      border-radius: 50%;
+      background: var(--primary);  
+      cursor: pointer;
+  }
+  
+  input[type=range]::-moz-range-thumb {
+      padding: 0;                                              /* largeur du bord */
+      border: 1px solid var(--primary);;
+      border-radius: 50%;
+      background: var(--primary);   /* le bord */
+      cursor: pointer;
+  
+  }
+    input[type=range]::-ms-thumb {
+      padding: 0;                                              /* largeur du bord */
+      border: 1px solid var(--primary);;
+      border-radius: 50%;
+      background: var(--primary);  
+      cursor: pointer;
+  }
+  
+  /*fin : personnalisation des inputs*/
+  
     /*  Page Accueil Body */
     .appart_pic{
         width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-bottom: 5px solid var(--primary);
     }
     .small_pic{
         width: 20%;
     }
     .pic_emp{
-        width: 80%;
+        width: 100%;
+        height:  350px;
         margin: auto;
         padding: auto;
     }
     .div_p{
-        display: flex;
+        font-size: 30px;
         text-align: center;
+        width: 70%;
     }
     #div1, #div2{
         margin-bottom: 5%;
     }
+    #div2{
+        padding: 10px;
+        align-items: center;
+    }
     .div_accueil{
-        border: 1px gainsboro solid;
+        border: 1px var(--border) solid;
+        background: white;
         border-radius: 15px;
         width: 25%;
-        padding: 1%;
+        padding: 5%;
         display: flex;
         justify-content: space-around;
+        box-shadow: 0 0 5px var(--border);
     }
     .div2{
         width: 50%;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
     }
     .p{
         color: white;
     }
     .btn_rejoindre:hover{
-        scale: 1.15;
+        scale: 1.05;
         color: white;
+        background: var(--hover);
+    
     }
     .text_position{
         background-color: rgba(0, 0, 0, 0.5);
-        padding: 5%;
+        padding: 5% 0;
         display: flex;
         flex-direction: column;
         text-align: center;
+        width: 90%;
     }
     .span{
-        color: #F15B5C;
+        color: var(--primary);
     }
     .btn_rejoindre{
         color: white;
-        background-color: #F15B5C;
+        background-color: var(--primary);
         border-radius: 20px;
-        width: 80%;
-        padding: 4%;
+        width: fit-content;
+        padding: 10px 50px;
         margin: auto;
+        transition: 500ms;
+        margin-top: 25px;
+        font-size: 18px;
+        font-weight: 700;
     }
+
     .title_accueil{
         color: white;
-        text-shadow: 0.5px 0.5px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
-        text-decoration: underline;
-        text-decoration-color: #F15B5C;
+        font-weight: 800;
+        font-size: 35px;
     }
     body{
         margin: 0;
@@ -173,39 +324,48 @@ input[type="submit"], button{
     .section1{
         display: flex;
         flex-direction: column;
+        width: 95%;
+        margin: auto;
     }
     .div_accueil{
-        width: 80%;
+        width: 100%;
         display: flex;
-        padding: 5% 1%;
+        padding: 0 1%;
         justify-content: space-around;
         margin: auto;
         position: relative;
     }
     .pic_emp{
+        object-fit: cover;
         width: 100%;
+        height: 350px;
         margin: auto;
     }
     #pic_immo{
         width: 30%;
+        min-width: 150px;
     }
     #pic_cli{
-        position: absolute;
-        top: 20%; 
-        left: 10%;
+        height: 150px;
+        width: 150px;
+        margin: 10px auto;
     }
     .reducto{
-        margin-top: 50%;
-        margin-bottom: 0;
+        margin: 0 auto;
+        text-align: center;
     }
     #pic_fr{
-        text-align: center;
-        position: absolute;
-        right: 20%;
-        top: 20%;
+        height: 150px;
+        width: 150px;
+        margin: 10px auto;
     }
     .title_accueil, h1{
         font-family: 'Sen';
+        
+    }
+    .appart_title h1{
+        border-bottom: 3px solid var(--primary);
+        width: fit-content !important;
     }
     p{
         font-size: large;
@@ -215,11 +375,22 @@ input[type="submit"], button{
         position: relative;
         text-align: center;
     }
+    .section2{
+        width: 95%;
+        margin: 0 auto 30px auto;
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0px 0px 5px var(--border);
+    }
     .text_position, .title_accueil{
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+    }
+    .section2 .text_position{
+        width: 80%;
+        max-width: 500px;
     }
 
     /* plus de 768px */
@@ -234,19 +405,22 @@ input[type="submit"], button{
         width: 20%;
     }
     .pic_emp{
-        width: 80%;
+        width: 100%;
+        height: 350px;
         margin: auto;
         padding: auto;
     }
     #div1, #div2{
-        margin-bottom: 5%;
+        width: 49%;
     }
     .section1{
         display: flex;
+        margin: 30px auto;
         flex-direction: row !important;
+        justify-content: space-between !important;
     }
     .div_accueil{
-        margin: 2% !important;
+        margin: 0% !important;
     }
     select{
         order: 0;

@@ -1,7 +1,6 @@
 <?php ob_start();?>
 
 <main>
-
 <section class="login-container">
             <div class="title">
                 <h2>Authentification d'administrateur</h2>
