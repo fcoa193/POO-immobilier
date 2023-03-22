@@ -28,7 +28,7 @@
     </main>
 
 <?php 
-$title = "Modifier un bien";
+$title = "Autentification admin - Immo&Co";
 $style = '../Tools/Style/login.css';
 $content = ob_get_clean();
 require './Template.php' ?>

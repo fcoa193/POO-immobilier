@@ -130,6 +130,15 @@ input[type=range]::-webkit-slider-thumb{
     cursor: pointer;
 }
 
+
+input[type=range]::-webkit-slider-thumb{
+    padding: 0;                                              /* largeur du bord */
+    border: 1px solid var(--primary);;
+    border-radius: 50%;
+    background: var(--primary);  
+    cursor: pointer;
+}
+
 input[type=range]::-moz-range-thumb {
     padding: 0;                                              /* largeur du bord */
     border: 1px solid var(--primary);;

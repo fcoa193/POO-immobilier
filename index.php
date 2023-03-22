@@ -1,7 +1,6 @@
 <?php
+require_once "Controller/Router.php";
 
-require 'Controleur/Routeur.php';
 
-
-$routeur = new Routeur();
-$routeur->routerRequete();
+$router = new Router();
+$router->routerRequest();

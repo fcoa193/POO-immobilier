@@ -43,7 +43,7 @@
     <script src="../Tools/Js/form.js" defer></script>
 
 <?php 
-$title = "Ajouter un bien";
+$title = "Ajouter un bien - Immo&Co";
 $style = '../Tools/Style/form.css';
 $content = ob_get_clean();
 require './Template.php' ?>

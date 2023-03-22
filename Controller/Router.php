@@ -1,55 +1,54 @@
 <?php
-require_once 'Controller.php';
+// require_once 'PropertyCtrl.php';
+require_once 'Controller/AccueilCtrl.php';
+// require_once 'AuthCtrl.php';
+// require_once 'ProduitCtrl.php';
+// require_once 'ResultatCtrl.php';
 
-class Routeur {
-
-    private $controller;
+require_once 'View/View.php';
+class Router {
+    private $AccueilCtrl;
+    // private $AuthCtrl;
+    // private $ProduitCtrl;
+    // private $ResultatCtrl;
+    // private $PropertyCtrl;
     
     public function __construct() {
       $this->AccueilCtrl = new AccueilCtrl();
-      $this->AuthCtrl = new AuthCtrl();
-      $this->ProduitCtrl = new ProduitCtrl();
-      $this->ResultatCtrl = new ResultatCtrl();
-      $this->PropertyCtrl = new PropertyCtrl();
+    //   $this->AuthCtrl = new AuthCtrl();
+    //   $this->ProduitCtrl = new ProduitCtrl();
+    //   $this->ResultatCtrl = new ResultatCtrl();
+    //   $this->PropertyCtrl = new PropertyCtrl();
     }
     
     // Traite une requête entrante
-    public function routerRequete() {
+    public function routerRequest() {
+ 
         try {
             if (isset($_GET['action'])) {
-                if ($_GET['action'] == 'showAllProperty') {
-                    $this->controller->AllProperty();
-                }
-                else 
-                if ($_GET['action'] == 'deleteProperty') {
-                    $this->controller->deleteProperty();
-                }
-                else
-                if ($_GET['action'] == 'createProperty') {
-                    $this->controller->createProperty();
-                }
-                else 
-                if ($_GET['action'] == 'updateProperty') {
-                    $this->controller->updateProperty();
-                }
-                else
+                
+                if ($_GET['action'] == 'Accueil') {
+                    $this->AccueilCtrl->Accueil();
+          
+                } else
                     throw new Exception("Action non valide");
-            }
+         }          
             else {
-                $this->controller->accueil();  // action par défaut
+                
+                $this->AccueilCtrl->Accueil();
             }
         }
         catch (Exception $e) {
-            erreur($e->getMessage());
+            error($e->getMessage());
       }
 
     }
     
     // Affiche une erreur
-    private function erreur($msgErreur) {
-        $vue = new Vue("Erreur");
-        $vue->generer(array('msgErreur' => $msgErreur));
-    }
+    // private function error($msgErreur) {
+    //     $vue = new Vue("Error");
+    //     $vue->generate(array('msgErreur' => $msgErreur));
+    // }
 }
 
 

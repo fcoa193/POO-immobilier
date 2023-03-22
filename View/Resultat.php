@@ -152,6 +152,7 @@
 
 
 <?php 
+$title = "Recherche - Immo&Co";
 $style = '../Tools/Style/resultat.css';
 $content = ob_get_clean();
 require './Template.php' ?>
