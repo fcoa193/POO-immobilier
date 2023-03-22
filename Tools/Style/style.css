@@ -9,15 +9,17 @@
 }
 
 *{
-box-sizing: border-box;
+    box-sizing: border-box;
     font-family: 'Sen', sans-serif;
-
 }
 
+*::selection{
+    background: #00b9a9;
+}
 
 body{
     background-color: var(--secondary);
-    background-image: url('../../Tools/Assets/topography.svg');
+    background-image: url('../Assets/topography.svg');
     min-width: 370px;
 }
 

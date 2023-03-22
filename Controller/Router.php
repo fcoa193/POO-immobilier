@@ -6,8 +6,11 @@ class Routeur {
     private $controller;
     
     public function __construct() {
-      $this->controller = new Controller();
-      
+      $this->AccueilCtrl = new AccueilCtrl();
+      $this->AuthCtrl = new AuthCtrl();
+      $this->ProduitCtrl = new ProduitCtrl();
+      $this->ResultatCtrl = new ResultatCtrl();
+      $this->PropertyCtrl = new PropertyCtrl();
     }
     
     // Traite une requête entrante

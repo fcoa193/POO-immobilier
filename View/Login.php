@@ -26,7 +26,9 @@
             </div>
         </section> 
     </main>
+
 <?php 
+$title = "Modifier un bien";
 $style = '../Tools/Style/login.css';
 $content = ob_get_clean();
 require './Template.php' ?>

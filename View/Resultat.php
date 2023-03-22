@@ -146,7 +146,11 @@
         </article>
     </section>
     </main>
-  <script src="../Tools/Js/search.js" defer></script>
+
+    <script src="../Tools/Js/form.js" defer></script>
+    <script src="../Tools/Js/filter.js" defer></script>
+
+
 <?php 
 $style = '../Tools/Style/resultat.css';
 $content = ob_get_clean();

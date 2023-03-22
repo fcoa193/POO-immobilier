@@ -20,7 +20,9 @@
             <a href=""> Accueil</a>
         </div>
     </header>
+
     <?= $content ?>
+    
     <footer>
       <div class="divLogo">
        <img class="logoFooter" src="../Tools/Assets/logo.png" alt="le logo du site ">

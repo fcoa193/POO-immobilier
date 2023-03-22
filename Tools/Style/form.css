@@ -1,0 +1,147 @@
+form{
+    margin: 50px auto;
+    position: relative;
+    min-width: 370px;
+    max-width: 600px;
+    width: 95%;
+    background: white;
+    border-radius: 25px;
+    padding: 50px 20px;
+    border: 1px var(--border) solid;
+    box-shadow: 0 0 5px var(--border);
+}
+
+form h2{
+    font-size: 20px;
+    margin: 0 0 35px 5%;
+}
+
+form h2 i{
+    margin-right: 10px;
+}
+
+form .form-control{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px; 
+    align-items: center;   
+}
+
+form .form-control > label{
+        width: 100px;
+       text-align: end;
+       font-weight: 700;
+}
+
+form .form-control > input[type="range"]{
+    width: 70%;
+    margin:  0 0 0 7%;
+}
+
+form .form-control .output{
+    width: 15%;
+    text-align: end;
+}
+
+form .form-control.type{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+form .form-control > div{
+    display: flex;
+    width: 85%;
+    margin:  0 0 0 7%;
+}
+
+form .form-control div div{
+    margin-right: 7%;
+}
+
+input[type="submit"]{
+    background: var(--primary);
+    border: none;
+    color: white;
+    padding: 10px;
+    min-width: min-content;
+    width: 30%;
+    font-weight: 700 ;
+    border-radius: 25px;
+    display: block;
+    margin: 30px auto 0 auto;
+    transition: 500ms;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover{
+    background: var(--hover);
+}
+
+/*personnalisation des inputs*/
+form input[type="checkbox"] {
+  display: none;
+}
+
+form input[type="checkbox"] + label {
+  position: relative;
+  z-index: 1000;
+  padding-left: 1.3rem;
+}
+
+form input[type="checkbox"] + label::before,
+form input[type="checkbox"] + label::after {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    content:'';
+    width: 1rem;
+    height: 1rem; 
+    cursor: pointer;
+}
+
+form input[type="checkbox"] + label::before {
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    padding: 2px;
+}
+
+form input[type="checkbox"]:checked + label::after {
+    background-color: var(--primary);
+    border-radius: 5px;
+    content: '✔️';
+}
+   
+input[type=range]{
+    height: .5em;
+    color: #ffffff;
+    background: rgb(241, 241, 241);
+    border: 2px var(--border) solid;
+    border-radius: 10px;
+}
+  
+input[type=range]::-webkit-slider-thumb{
+    padding: 0;                                              /* largeur du bord */
+    border: 1px solid var(--primary);;
+    border-radius: 50%;
+    background: var(--primary);  
+    cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+    padding: 0;                                              /* largeur du bord */
+    border: 1px solid var(--primary);;
+    border-radius: 50%;
+    background: var(--primary);   /* le bord */
+    cursor: pointer;
+
+}
+  input[type=range]::-ms-thumb {
+    padding: 0;                                              /* largeur du bord */
+    border: 1px solid var(--primary);;
+    border-radius: 50%;
+    background: var(--primary);  
+    cursor: pointer;
+}

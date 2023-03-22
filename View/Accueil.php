@@ -93,9 +93,11 @@ ob_start();
             </div>
         </section>
     </main>
+    <script src="../Tools/Js/form.js" defer></script>
+    <script src="../Tools/Js/filter.js" defer></script>
 
-    <script src="../Tools/Js/search.js" defer></script>
-
-<?php $style = '../Tools/Style/accueil.css'; ?>
-<?php $content = ob_get_clean(); ?>
+<?php 
+$title = "Accueil";
+$style = '../Tools/Style/accueil.css';  
+$content = ob_get_clean(); ?>
 <?php require 'Template.php'; ?>
