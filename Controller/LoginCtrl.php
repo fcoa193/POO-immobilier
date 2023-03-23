@@ -1,10 +1,10 @@
 <?php
 require_once 'View/View.php';
 
-class ResultatCtrl {
+class LoginCtrl {
   // Affiche les détails sur un billet
-  public function Resultat() {
-    $view = new View('Resultat');
+  public function Login() {
+    $view = new View('Login');
     $view->generate();
   }
 }

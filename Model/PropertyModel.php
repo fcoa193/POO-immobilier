@@ -19,6 +19,6 @@
 //     if ($property->rowCount() == 1)
 //       return $property->fetch();  // Accès à la première ligne de résultat
 //     else
-//       throw new Exception("Produit introuvable");
+//       throw new Exception("Property introuvable");
 //     }
 // }

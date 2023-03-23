@@ -1,24 +1,24 @@
 <?php
-// require_once 'PropertyCtrl.php';
 require_once 'Controller/AccueilCtrl.php';
-// require_once 'AuthCtrl.php';
-// require_once 'ProduitCtrl.php';
-// require_once 'ResultatCtrl.php';
+require_once 'Controller/ResultatCtrl.php';
+require_once 'Controller/PropertyCtrl.php';
+require_once 'Controller/LoginCtrl.php';
+// require_once 'PropertyCtrl.php';
 
 require_once 'View/View.php';
+
 class Router {
     private $AccueilCtrl;
-    // private $AuthCtrl;
-    // private $ProduitCtrl;
-    // private $ResultatCtrl;
+    private $ResultatCtrl;
+    private $PropertyCtrl;
     // private $PropertyCtrl;
-    
+    private $LoginCtrl;
+
     public function __construct() {
       $this->AccueilCtrl = new AccueilCtrl();
-    //   $this->AuthCtrl = new AuthCtrl();
-    //   $this->ProduitCtrl = new ProduitCtrl();
-    //   $this->ResultatCtrl = new ResultatCtrl();
-    //   $this->PropertyCtrl = new PropertyCtrl();
+      $this->ResultatCtrl = new ResultatCtrl();
+      $this->PropertyCtrl = new PropertyCtrl();
+      $this->LoginCtrl = new LoginCtrl();
     }
     
     // Traite une requête entrante
@@ -27,12 +27,21 @@ class Router {
         try {
             if (isset($_GET['action'])) {
                 
-                if ($_GET['action'] == 'Accueil') {
-                    $this->AccueilCtrl->Accueil();
-          
-                } else
+               if($_GET['action'] == 'Resultat'){
+                    $this->ResultatCtrl->Resultat();
+                }
+                else if($_GET['action'] == 'Property'){
+                    $this->PropertyCtrl->Property();
+                }
+                else if($_GET['action'] == 'Login'){
+                    $this->LoginCtrl->Login();
+                }
+                else if($_GET['action'] == 'Resultat'){
+                    
+                }
+                else
                     throw new Exception("Action non valide");
-         }          
+                }          
             else {
                 
                 $this->AccueilCtrl->Accueil();

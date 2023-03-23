@@ -1,7 +1,5 @@
 
-<?php 
-ob_start();
-?>
+<?php ?>
 
 <div class="appart_title">
                 <img src="Tools/Assets/appart.jpg" class="appart_pic" alt="photo d'appartements">
@@ -96,8 +94,4 @@ ob_start();
     <script src="Tools/Js/form.js" defer></script>
     <script src="Tools/Js/filter.js" defer></script>
 
-<?php 
-$title = "Accueil - Immo&Co";
-$style = 'Tools/Style/accueil.css';  
-$content = ob_get_clean(); ?>
-<?php require 'Template.php'; ?>
+

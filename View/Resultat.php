@@ -1,4 +1,9 @@
 <?php ob_start();?>
+<div id="loader">
+    <div id="dot1"></div>
+    <div id="dot2"></div>
+    <div id="dot3"></div>
+</div>
 <main>
     <section class="search-box">
         <form>
@@ -147,12 +152,10 @@
     </section>
     </main>
 
-    <script src="../Tools/Js/form.js" defer></script>
-    <script src="../Tools/Js/filter.js" defer></script>
+    <script src="Tools/Js/form.js" defer></script>
+    <script src="Tools/Js/filter.js" defer></script>
 
 
 <?php 
 $title = "Recherche - Immo&Co";
-$style = '../Tools/Style/resultat.css';
-$content = ob_get_clean();
-require './Template.php' ?>
+?>

@@ -15,9 +15,20 @@
        <div class= "divHeader">
         <div class= "logoHeader">
             <img  src="Tools/Assets/logo.png" alt="le logo du site ">
-            <h1 class="title1"> Immo&Co</h1>
+            <h1 class="title1">Immo&Co</h1>
         </div>
-            <a href=""> Accueil</a>
+        <?php if($_GET['action'] === "Login"){ ?>
+
+
+          <?php
+          //  }else if(){
+            ?>
+
+
+      <?php }else{?>
+    
+            <a href="index.php">Accueil</a>
+          <?php }?>
         </div>
     </header>
 
@@ -30,7 +41,7 @@
       </div>  
       
       <div class= "adress">
-       <span>Adresse : 10 spanlace Victor Hugo, </span>
+       <span>Adresse : 10 place Victor Hugo, </span>
         <span>38000 Grenoble</span>
        <span > Email : services@immo-co.org</span>
         <span>    Tel : 04 01 23 01 23</span> 

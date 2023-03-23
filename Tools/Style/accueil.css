@@ -15,6 +15,7 @@ form {
     padding: 20px 2%;
     justify-content: center;
     flex-wrap: wrap;
+    margin: 0 ;
 }
 
 form .box{
@@ -322,9 +323,7 @@ form input[type="checkbox"] {
         font-size: 35px;
         text-shadow: 0 0 2px black;
     }
-    body{
-        margin: 0;
-    }
+ 
     .section1{
         display: flex;
         flex-direction: column;
