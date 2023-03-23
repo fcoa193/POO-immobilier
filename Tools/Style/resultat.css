@@ -1,0 +1,420 @@
+/*-----Barre de recherche-----*/
+/*Loader*/
+#loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff85;
+    animation: disappear 500ms 1000ms forwards;
+}
+
+@keyframes disappear {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        z-index: -1000;    
+    }
+  }
+
+  #loader div{
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    margin: 0 10px;
+  }
+#dot1{
+    background: #5EC2B0;
+    animation: jump 500ms forwards;
+}
+
+#dot2{
+    background: #FFCE61;
+    animation: jump 500ms 250ms forwards;
+}
+
+#dot3{
+    background: #005BE9;
+    animation: jump 500ms 500ms forwards;
+} 
+
+@keyframes jump {
+    0% {
+    
+      transform: translateY(0);
+      
+    }
+    50% {
+      transform: translateY(-50px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
+  
+section{
+    background: white;
+    width: 95%;
+    margin: 30px auto;
+    border-radius: 25px;
+    border: solid 1px var(--border);
+    box-shadow: 0px 0px 5px var(--border);
+}
+
+form {
+    display: flex;
+    padding: 20px 2%;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0;
+}
+
+form .box{
+    display: flex;
+    width: 95%;
+    margin-bottom: 15px;
+}
+
+select{
+    order: 2;
+    background: white;
+    border: var(--border) 1px solid;
+    border-radius: 25px;
+    width: 80%;
+    height: 35px;
+    padding: 0 15px;
+}
+
+form input[type="text"]{
+    width: 100%;
+    border-radius: 25px 0 0 25px;
+    height: 35px;
+    padding: 0 15px;
+    border: var(--border) 1px solid;
+    outline: none;
+}
+
+form input[type="submit"]{
+    min-width: 25px;
+    height: 100%;
+    border-radius: 0 25px 25px 0 ;
+    width: 45px;
+    border: none;
+    background: var(--primary);
+    transition: 500ms;
+}
+
+form input[type="submit"]:hover{
+    background: var(--hover);
+}
+
+button{
+    background: none;
+    border: none;
+    order: 2;
+    width: 15%;
+}
+
+button:hover{
+    color: var(--primary);
+}
+
+button i {
+    margin: 0 5px;
+}
+
+input[type="submit"], button{
+    cursor: pointer;
+}
+
+
+/*-----Modal-----*/
+.backdrop-modal{
+    position: fixed;
+    background: #00000074;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    z-index: 500;
+}
+
+.modal{
+    position: relative;
+    margin: auto;
+    min-width: 370px;
+    max-width: 600px;
+    width: 95%;
+    background: white;
+    top: 50%; 
+    transform: translateY(-50%);
+    border-radius: 25px;
+    padding: 50px 20px;
+}
+
+.modal h2{
+    font-size: 20px;
+    margin: 0 0 35px 5%;
+}
+
+.modal h2 i{
+    margin-right: 10px;
+}
+
+form .form-control{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px; 
+    align-items: center;   
+}
+
+form .form-control > label{
+        width: 100px;
+       text-align: end;
+       font-weight: 700;
+}
+
+form .form-control > input[type="range"]{
+    width: 70%;
+    margin:  0 0 0 7%;
+}
+
+form .form-control .output{
+    width: 15%;
+    text-align: end;
+}
+
+form .form-control.type{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+form .form-control > div{
+    display: flex;
+    width: 85%;
+    margin:  0 0 0 7%;
+}
+
+form .form-control div div{
+    margin-right: 7%;
+}
+
+#close-filter{
+    background: var(--primary);
+    color: white;
+    padding: 10px;
+    min-width: min-content;
+    width: 30%;
+    font-weight: 700 ;
+    border-radius: 25px;
+    display: block;
+    margin: 30px auto 0 auto;
+    transition: 500ms;
+}
+
+#close-filter:hover{
+    background: var(--hover);
+}
+
+/*personnalisation des inputs*/
+form input[type="checkbox"] {
+  display: none;
+}
+
+form input[type="checkbox"] + label {
+  position: relative;
+  z-index: 1000;
+  padding-left: 1.3rem;
+}
+
+form input[type="checkbox"] + label::before,
+form input[type="checkbox"] + label::after {
+    display: block;
+    position: absolute;
+    box-sizing: border-box;
+    bottom: 0;
+    left: 0;
+    content:'';
+    width: 1rem;
+    height: 1rem; 
+    cursor: pointer;
+}
+
+form input[type="checkbox"] + label::before {
+    border: 1px solid var(--black);
+    border-radius: 5px;
+    padding: 2px;
+}
+
+form input[type="checkbox"]:checked + label::after {
+    background-color: var(--primary);
+    border-radius: 5px;
+    content: '✔️';
+}
+   
+input[type=range]{
+    height: .5em;
+    color: #ffffff;
+    background: rgb(241, 241, 241);
+    border: 2px var(--border) solid;
+    border-radius: 10px;
+}
+  
+input[type=range]::-webkit-slider-thumb{
+    padding: 0;                                              /* largeur du bord */
+    border: 1px solid var(--primary);;
+    border-radius: 50%;
+    background: var(--primary);  
+    cursor: pointer;
+}
+
+input[type=range]::-moz-range-thumb {
+    padding: 0;                                              /* largeur du bord */
+    border: 1px solid var(--primary);;
+    border-radius: 50%;
+    background: var(--primary);   /* le bord */
+    cursor: pointer;
+
+}
+  input[type=range]::-ms-thumb {
+    padding: 0;                                              /* largeur du bord */
+    border: 1px solid var(--primary);;
+    border-radius: 50%;
+    background: var(--primary);  
+    cursor: pointer;
+}
+
+/*fin : personnalisation des inputs*/
+
+/*Annonces*/
+section.real-estate-ad{
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 2%;
+}
+
+section.real-estate-ad article{
+    width: 100%;
+  height: 370px;
+  margin: 2%;
+  position: relative;
+  transition: 300ms;
+  animation: slide-top 1000ms ease-out backwards;
+}
+
+section.real-estate-ad article:hover {
+    transform: scale(1.02);
+    filter: brightness(116%) saturate(161%) contrast(90%);
+    cursor: pointer;
+}
+
+.title-price {
+    position: absolute;
+    height: fit-content;
+    z-index: 2;
+    bottom: 5%;
+    left: 5%;
+    display: flex;
+    align-items: flex-end;
+    width: 90%;
+    color: white;
+}
+
+section.real-estate-ad h2 {
+    font-weight: 500;
+    font-size: 20px;
+    margin : 0;
+    width: 75%;
+    text-align: start;
+    margin-right: 5px;
+  }
+
+  section.real-estate-ad span {
+    font-weight: 700;
+    font-size: 20px;
+    width: 25%;
+    min-width: fit-content;
+    text-align: end;
+    margin-left: 5px;
+  }
+
+  section.real-estate-ad img {
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    object-fit: cover;
+  }
+
+  section.real-estate-ad .card-shadow {
+    position: absolute;
+    z-index: 1;
+    bottom: 0;
+    width: 100%;
+    height: 35%;
+    border-radius: 15px;
+    background: linear-gradient(#00000000, #000000b4);
+  
+}
+
+
+  
+/*Responsive*/
+@media (min-width : 768px){
+
+    /*Boîte de recherche*/
+    select{
+        order: 0;
+        width: 10%;
+        min-width: 110px;
+    }
+
+    form {
+        flex-wrap: nowrap;
+        align-items: center;
+    }
+
+    form .box{  
+        margin-bottom: 0;
+        margin: 0 5px  0 15px;
+    }
+
+    select{
+        width: 20%;
+    }
+
+    form input[type="submit"]{
+        width: max-content;
+        padding: 0 3vw;
+        color: white;
+        font-weight: 700;
+    }
+
+    button{
+        width: 10%;
+    }   
+
+    /*Annonces*/
+    section.real-estate-ad article{
+        width: 45%;
+    }
+}
+
+@media (min-width : 1200px){
+    section.real-estate-ad article{
+        width: 29%;
+    }
+}
