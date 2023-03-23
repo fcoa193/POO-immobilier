@@ -7,20 +7,46 @@ private $file;
 private $title;
 
 public function __construct($action) {
-  // Détermination du nom du fichier vue à partir de l'action
   if($action == 'AddProperty' || $action == 'EditProperty'){
     $this->style ="Tools/Style/form.css";
   }else{
     $this->style ="Tools/Style/" . strtolower($action) . ".css";
   }
+
+switch ($action) {
+  case 'Resultat':
+    $this->title = 'Recherches - Immo&Co';
+    break;
+  case 'Property':
+    $this->title = 'Annonce - Immo&Co';
+    break;
+  case 'Accueil':
+    $this->title = 'Accueil - Immo&Co';
+    break;
+  case 'Login':
+    $this->title = 'Authentification admin - Immo&Co';
+    break;
+  case 'AddProperty':
+    $this->title = 'Ajout de bien - Immo&Co';
+    break;
+  case 'EditProperty':
+    $this->title = 'Modification de bien - Immo&Co';
+    break;
+  default:
+    $this->title = 'Error - Immo&Co';
+    break;
+}
+
+  // Détermination du nom du fichier vue à partir de l'action
   $this->file = "View/" . $action . ".php";
-  
 }
 
 // Génère et affiche la vue
 public function generate($data = null) {
+  echo 'view ok <br>';
+
   // Génération de la partie spécifique de la vue
- $content = $this->generateFile($this->file, $data);
+  $content = $this->generateFile($this->file, $data["property"]);
 
   // Génération du gabarit commun utilisant la partie spécifique
   $view = $this->generateFile('View/Template.php',
@@ -30,10 +56,11 @@ public function generate($data = null) {
 
 // Génère un fichier vue et renvoie le résultat produit
 private function generateFile($file, $data = null) {
+
   if (file_exists($file)) {
     // Rend les éléments du tableau $donnees accessibles dans la vue
-    if ($data != null){
-    extract($data);
+  if ($data != null){
+  extract($data);
   }
   ob_start();
     // Son résultat est placé dans le tampon de sortie

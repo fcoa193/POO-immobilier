@@ -61,94 +61,20 @@
     </section>
 
     <section class="real-estate-ad">
-    <article class="appartment-card">
-          <a href="#">
-            <div class="card-shadow"></div>
-            <div class="title-price">
-                <h2>Appartement centre-ville</h2>
-                <span>1000000€</span>
-            </div>
-            
-            <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
-          </a>
-        </article>
+      <?php var_dump($data);
+      foreach ($data as $property) {?>
         <article class="appartment-card">
-          <a href="#">
-            <div class="card-shadow"></div>
-            <div class="title-price">
-                <h2>Appartement centre-ville</h2>
-                <span>1000000€</span>
-            </div>
-            
-            <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
-          </a>
-        </article>
-        <article class="appartment-card">
-          <a href="#">
-            <div class="card-shadow"></div>
-            <div class="title-price">
-                <h2>Appartement centre-ville</h2>
-                <span>1000000€</span>
-            </div>
-            
-            <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
-          </a>
-        </article>
-        <article class="appartment-card">
-          <a href="#">
-            <div class="card-shadow"></div>
-            <div class="title-price">
-                <h2>Appartement centre-ville</h2>
-                <span>1000000€</span>
-            </div>
-            
-            <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
-          </a>
-        </article>
-        <article class="appartment-card">
-          <a href="#">
-            <div class="card-shadow"></div>
-            <div class="title-price">
-                <h2>Appartement centre-ville</h2>
-                <span>1000000€</span>
-            </div>
-            
-            <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
-          </a>
-        </article>
-        <article class="appartment-card">
-          <a href="#">
-            <div class="card-shadow"></div>
-            <div class="title-price">
-                <h2>Appartement centre-ville</h2>
-                <span>1000000€</span>
-            </div>
-            
-            <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
-          </a>
-        </article>
-        <article class="appartment-card">
-          <a href="#">
-            <div class="card-shadow"></div>
-            <div class="title-price">
-                <h2>Appartement centre-ville</h2>
-                <span>1000000€</span>
-            </div>
-            
-            <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
-          </a>
-        </article>
-        <article class="appartment-card">
-          <a href="#">
-            <div class="card-shadow"></div>
-            <div class="title-price">
-                <h2>Appartement centre-ville</h2>
-                <span>1000000€</span>
-            </div>
-            
-            <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
-          </a>
-        </article>
+      <a href="#">
+        <div class="card-shadow"></div>
+        <div class="title-price">
+            <h2><?=$property['intitule']?></h2>
+            <span><?=$property['prix']?>€</span>
+        </div>
+        <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
+      </a>
+    </article>
+    <?php }?>
+
     </section>
     </main>
 

@@ -3,7 +3,6 @@ require_once 'Controller/AccueilCtrl.php';
 require_once 'Controller/ResultatCtrl.php';
 require_once 'Controller/PropertyCtrl.php';
 require_once 'Controller/LoginCtrl.php';
-// require_once 'PropertyCtrl.php';
 
 require_once 'View/View.php';
 
@@ -11,7 +10,6 @@ class Router {
     private $AccueilCtrl;
     private $ResultatCtrl;
     private $PropertyCtrl;
-    // private $PropertyCtrl;
     private $LoginCtrl;
 
     public function __construct() {
@@ -23,20 +21,20 @@ class Router {
     
     // Traite une requête entrante
     public function routerRequest() {
- 
+       
         try {
             if (isset($_GET['action'])) {
                 
-               if($_GET['action'] == 'Resultat'){
+               if($_GET['action'] == 'Property'){
                     $this->ResultatCtrl->Resultat();
                 }
-                else if($_GET['action'] == 'Property'){
-                    $this->PropertyCtrl->Property();
+                else if($_GET['action'] == 'Resultat'){
+                    $this->PropertyCtrl->Properties();
                 }
                 else if($_GET['action'] == 'Login'){
                     $this->LoginCtrl->Login();
                 }
-                else if($_GET['action'] == 'Resultat'){
+                else if($_GET['action'] == ''){
                     
                 }
                 else

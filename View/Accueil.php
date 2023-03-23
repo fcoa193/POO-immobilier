@@ -1,6 +1,3 @@
-
-<?php ?>
-
 <div class="appart_title">
                 <img src="Tools/Assets/appart.jpg" class="appart_pic" alt="photo d'appartements">
                 <h1 class="title_accueil"> Trouver l'appartement de vos rêves !</h1>

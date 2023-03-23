@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="Tools/Style/normalize.css">
     <link rel="stylesheet" href="Tools/Style/style.css">
     <link rel="stylesheet" href=<?=$style?>>
+    <link rel="icon" href="Tools/Assets/favicon.png" type="image/x-icon">
     <title><?=$title?></title>
 </head>
 <body>
