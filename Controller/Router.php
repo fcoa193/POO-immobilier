@@ -59,5 +59,3 @@ class Router {
     //     $vue->generate(array('msgErreur' => $msgErreur));
     // }
 }
-
-
