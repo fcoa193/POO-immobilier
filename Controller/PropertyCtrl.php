@@ -20,11 +20,15 @@ class PropertyCtrl {
   }
 
   public function Properties() {
+
     $properties = $this->property->getProperties();
+    
     // $pics = $this->pics->getPics();
     $view = new View("Resultat");
     $view->generate(array('property' => $properties 
     // 'pics' => $pics
   ));
+
+  
   }
 }

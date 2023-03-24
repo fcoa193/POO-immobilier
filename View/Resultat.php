@@ -5,14 +5,20 @@
     <div id="dot3"></div>
 </div>
 <main>
+ 
     <section class="search-box">
-        <form>
+        <form action='index.php?action=Resultat' method="post">
             <select name="louer-acheter">
-                <option value="Louer">Louer</option>
-                <option value="Acheter">Acheter</option>
+                 <?php if($_POST['louer-acheter'] == 'Achat'){?>
+                    <option value="Location">Louer</option>
+                    <option value="Achat" selected>Acheter</option>
+                <?php } else if($_POST['louer-acheter'] == 'Location') {?>
+                    <option value="Location" selected>Louer</option>
+                    <option value="Achat">Acheter</option>
+                <?php }?>
             </select>
             <div class="box">
-                <input name="city" type="text" placeholder="Marseille, France">
+                    <input name="city" type="text" placeholder="Ex : Annecy" value="<?=$_POST['city']?>">
                 <div>
                     <input type="submit" value="🔎">
                 </div>
@@ -23,35 +29,64 @@
                     <h2><i class="fa-solid fa-sliders"></i>Filtrer</h2>
                     <div class="form-control type">
                         <label for="type">Type</label>
-                        <div>
-                            <div>
-                                <input type="checkbox" name="type" id="appartement" checked/>
-                                <label for="appartement">Appartement</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="type" id="maison" checked/>
-                                <label for="maison">Maison</label>
-                            </div>
+                        <div> 
+                            
+                            <?php if($_POST['appartement'] == 'on' && $_POST['maison'] != 'on'){?>
+                                <div>
+                                    <input type="checkbox" name="appartement" id="appartement" checked/>
+                                    <label for="appartement">Appartement</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="maison" id="maison"/>
+                                    <label for="maison">Maison</label>
+                                </div>
+                            <?php } else if($_POST['maison'] == 'on' && $_POST['appartement'] != 'on') {?>
+                                <div>
+                                    <input type="checkbox" name="appartement" id="appartement"/>
+                                    <label for="appartement">Appartement</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="maison" id="maison" checked/>
+                                    <label for="maison">Maison</label>
+                                </div>
+                            <?php } else {?>
+                                <div>
+                                    <input type="checkbox" name="appartement" id="appartement" checked/>
+                                    <label for="appartement">Appartement</label>
+                                </div>
+                                <div>
+                                    <input type="checkbox" name="maison" id="maison" checked/>
+                                    <label for="maison">Maison</label>
+                                </div>
+                            <?php }?>
+                 
+                            
                         </div>
                     </div>
                     <div class="form-control">
-                        <label for="maxprice">Prix max</label>
-                        <input type="range" name="maxprice" value="0" min="0" max="1000000">
+                    <label for="maxprice">Prix max</label>
+                    <?php if($_POST['louer-acheter'] == 'Location'){?>
+                        <input type="range" name="maxprice" value='<?= $_POST['maxprice']?>' min="0" max="3000">
                         <span class="output"><span class="value"></span>€</span>
+                    <?php } else {?>
+                        <input type="range" name="maxprice" value='<?= $_POST['maxprice']?>' min="0" max="1000000">
+                        <span class="output"><span class="value"></span>€</span>
+                    <?php } ?>
+
                     </div>
                     <div class="form-control">
                         <label for="superficie">Surface min</label>
-                        <input type="range" name="superficie" min="0" max="250">
+                        <input type="range" name="superficie" value='<?= $_POST['superficie']?>'' min="0" max="250">
                         <span class="output"><span class="value"></span>m<sup>2</sup></span>
                     </div>
                     <div class="form-control">
-                        <label for="parts">Pièces</label>
-                        <input type="range" name="parts" min="1" max="7">
+                        <label for="parts">Pièces min</label>
+                        <input type="range" name="parts" value='<?= $_POST['parts']?>' min="1" max="7">
                         <span class="output"><span class="value"></span></span>
                     </div>
                     <div class="form-control">
-                        <label for="rooms">Chambres</label>
-                        <input type="range" name="rooms" min="1" max="">
+                        <label for="rooms">Chambres min</label>
+                        <input type="range" name="rooms" min="1" value="<?= $_POST['rooms']?>">
                         <span class="output"><span class="value"></span></span>
                     </div>
                     <button id="close-filter">Sauvegarder</button>
@@ -61,7 +96,7 @@
     </section>
 
     <section class="real-estate-ad">
-      <?php var_dump($data);
+      <?php
       foreach ($data as $property) {?>
         <article class="appartment-card">
       <a href="#">

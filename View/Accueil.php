@@ -4,58 +4,58 @@
             </div>
     <main class="body">
         <section class="search-box">
-            <form>
-                <select name="louer-acheter">
-                    <option value="Louer">Louer</option>
-                    <option value="Acheter">Acheter</option>
-                </select>
-                <div class="box">
-                    <input name="city" type="text" placeholder="Marseille, France">
-                    <div>
-                        <input type="submit" value="🔎">
-                    </div>
+        <form action='index.php?action=Resultat' method="post">
+            <select name="louer-acheter">
+                <option value="Location">Louer</option>
+                <option value="Achat">Acheter</option>
+            </select>
+            <div class="box">
+                <input name="city" type="text" placeholder="Ex : Annecy">
+                <div>
+                    <input type="submit" value="🔎">
                 </div>
-                <button id="open-filter"><i class="fa-solid fa-sliders"></i>Filtrer</button>
-                <div id="filter"class="backdrop-modal">
-                    <div class="modal">
-                        <h2><i class="fa-solid fa-sliders"></i>Filtrer</h2>
-                        <div class="form-control type">
-                            <label for="type">Type</label>
+            </div>
+            <button id="open-filter"><i class="fa-solid fa-sliders"></i>Filtrer</button>
+            <div id="filter"class="backdrop-modal">
+                <div class="modal">
+                    <h2><i class="fa-solid fa-sliders"></i>Filtrer</h2>
+                    <div class="form-control type">
+                        <label for="type">Type</label>
+                        <div>
                             <div>
-                                <div>
-                                    <input type="checkbox" name="type" id="appartement" checked/>
-                                    <label for="appartement">Appartement</label>
-                                </div>
-                                <div>
-                                    <input type="checkbox" name="type" id="maison" checked/>
-                                    <label for="maison">Maison</label>
-                                </div>
+                                <input type="checkbox" name="appartement" id="appartement" checked/>
+                                <label for="appartement">Appartement</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="maison" id="maison" checked/>
+                                <label for="maison">Maison</label>
                             </div>
                         </div>
-                        <div class="form-control">
-                            <label for="maxprice">Prix max</label>
-                            <input type="range" name="maxprice" value="0" min="0" max="1000000">
-                            <span class="output"><span class="value"></span>€</span>
-                        </div>
-                        <div class="form-control">
-                            <label for="superficie">Surface min</label>
-                            <input type="range" name="superficie" min="0" max="250">
-                            <span class="output"><span class="value"></span>m<sup>2</sup></span>
-                        </div>
-                        <div class="form-control">
-                            <label for="parts">Pièces</label>
-                            <input type="range" name="parts" min="1" max="7">
-                            <span class="output"><span class="value"></span></span>
-                        </div>
-                        <div class="form-control">
-                            <label for="rooms">Chambres</label>
-                            <input type="range" name="rooms" min="1" max="">
-                            <span class="output"><span class="value"></span></span>
-                        </div>
-                        <button id="close-filter">Sauvegarder</button>
                     </div>
+                    <div class="form-control">
+                        <label for="maxprice">Prix max</label>
+                        <input type="range" name="maxprice" value='0' min="0">
+                        <span class="output"><span class="value"></span>€</span>
+                    </div>
+                    <div class="form-control">
+                        <label for="superficie">Surface min</label>
+                        <input type="range" name="superficie" value='0' min="0" max="250">
+                        <span class="output"><span class="value"></span>m<sup>2</sup></span>
+                    </div>
+                    <div class="form-control">
+                        <label for="parts">Pièces min</label>
+                        <input type="range" name="parts" value='1' min="1" max="7">
+                        <span class="output"><span class="value"></span></span>
+                    </div>
+                    <div class="form-control">
+                        <label for="rooms">Chambres min</label>
+                        <input type="range" name="rooms" min="1" >
+                        <span class="output"><span class="value"></span></span>
+                    </div>
+                    <button id="close-filter">Sauvegarder</button>
                 </div>
-            </form>
+            </div>
+        </form>
         </section>
        
 
@@ -88,6 +88,21 @@
             </div>
         </section>
     </main>
+    <script defer>
+        const maxpriceAccueil =  document.querySelector(".modal input[name='maxprice']")
+        const selectValueAccueil = document.querySelector('select')
+
+        if(selectValueAccueil.value === 'Location'){
+            console.log(selectValueAccueil)
+                maxpriceAccueil.max = 3000
+                maxpriceAccueil.value = 3000
+                maxpriceAccueil.nextElementSibling.querySelector('.value').innerHTML = '+' + 3000
+            } else{
+                maxpriceAccueil.max = 1000000
+                maxpriceAccueil.value = 1000000
+                maxpriceAccueil.nextElementSibling.querySelector('.value').innerHTML = '+' + 1000000
+            }   
+    </script>
     <script src="Tools/Js/form.js" defer></script>
     <script src="Tools/Js/filter.js" defer></script>
 

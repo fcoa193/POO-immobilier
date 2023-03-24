@@ -30,44 +30,30 @@ inputRange.forEach(el => {
     }
     
     if(el.value == 7 && el.name == "rooms"){
-
          el.nextElementSibling.querySelector('.value').innerText = '+' + 7;
-     }
-  
-  
+    }
 }
     if(el.name === "parts"){
         roomsNbr.max = el.value;
     }
 });
 
-
-
 /* Changer l'échelle des input range des prix en fonction du code */
 const selectValue = document.querySelector('select')
 const maxPriceRange = document.querySelector("input[name='maxprice']")
 
-selectValue.onchange = () => {
-    console.log(selectValue.value)
-    updateMax();
-    updateValues();
-}
-    updateMax();
 
-function updateMax() {
-    if(selectValue.value === 'Louer'){
+selectValue.onchange = () => {
+    if(selectValue.value == 'Location'){
         maxPriceRange.max = 3000;
+        maxPriceRange.value = 3000;
+        maxPriceRange.nextElementSibling.querySelector('.value').innerHTML = '+' + 3000
+        
     } else{
         maxPriceRange.max = 1000000;
+        maxPriceRange.value = 1000000;
+        maxPriceRange.nextElementSibling.querySelector('.value').innerHTML = '+' + 1000000
     }
 }
 
-function updateValues(){
-    if(selectValue.value === 'Louer'){
-        maxPriceRange.nextElementSibling.querySelector('.value').innerHTML = 0
-        maxPriceRange.value = 0;
-    } else{
-        maxPriceRange.nextElementSibling.querySelector('.value').innerHTML = 0
-        maxPriceRange.value = 0;
-    }
-} 
+

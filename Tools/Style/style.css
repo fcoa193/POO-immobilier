@@ -13,9 +13,6 @@
     font-family: 'Sen', sans-serif;
 }
 
-*::selection{
-    background: #00b9a9;
-}
 
 body{
     background-color: var(--secondary);
@@ -48,6 +45,10 @@ header{
     color: var(--primary);
     font-family: 'Sora', sans-serif;
     font-size: 22px;
+}
+
+.title2{
+    font-family: 'Sora', sans-serif;
 }
 
 .logoHeader {

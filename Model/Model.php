@@ -12,7 +12,8 @@ abstract class Model {
       $resultat = $this->getBdd()->query($sql);    // exécution directe
     }
     else {
-      $resultat = $this->getBdd()->prepare($sql)->execute($params);  // requête préparée
+      $resultat = $this->getBdd()->prepare($sql);  // requête préparée
+      $resultat->execute($params);
     }
     return $resultat;
   }

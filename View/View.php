@@ -43,7 +43,6 @@ switch ($action) {
 
 // Génère et affiche la vue
 public function generate($data = null) {
-  echo 'view ok <br>';
 
   // Génération de la partie spécifique de la vue
   $content = $this->generateFile($this->file, $data["property"]);

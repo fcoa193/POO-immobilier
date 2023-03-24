@@ -52,10 +52,10 @@ class Router {
     }
     
     // Affiche une erreur
-    // private function error($msgErreur) {
-    //     $vue = new Vue("Error");
-    //     $vue->generate(array('msgErreur' => $msgErreur));
-    // }
+    private function error($msgErreur) {
+        $vue = new Vue("Error");
+        $vue->generate(array('msgErreur' => $msgErreur));
+    }
 }
 
 
