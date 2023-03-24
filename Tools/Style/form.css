@@ -9,16 +9,66 @@ form{
     padding: 50px 20px;
     border: 1px var(--border) solid;
     box-shadow: 0 0 5px var(--border);
+    text-align: center;
 }
 
 form h2{
-    font-size: 20px;
+    font-size: 30px;
     margin: 0 0 35px 5%;
 }
 
 form h2 i{
-    margin-right: 10px;
+    margin-right: 40px;
 }
+#house{
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 15px;
+    border-radius: 25px;
+}
+#type{
+    display: inline-block;
+    width: 49%;
+    margin-bottom: 15px;
+    margin-right: 9%;
+    border-radius: 25px;
+}
+#intitule{
+    display: inline-block;
+    width: 50%;
+    margin-bottom: 15px;
+    margin-right: 10%;
+    border-radius: 25px;
+}
+.form-control2 {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top:15px ;
+    margin-bottom: 15px;
+}
+.form-control3{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.form-control4{
+    margin-bottom: 15px;
+}
+
+ textarea {
+   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+   width: 70%;
+   resize: none;
+   border-radius: 25px;
+        }
+
+.form-control5 label {
+    margin-bottom: 10px;
+}
+
+
 
 form .form-control{
     display: flex;
@@ -116,8 +166,8 @@ form input[type="checkbox"]:checked + label::after {
    
 input[type=range]{
     height: .5em;
-    color: #ffffff;
-    background: rgb(241, 241, 241);
+    color: #f15b5c;
+    background: #f15b5c;
     border: 2px var(--border) solid;
     border-radius: 10px;
 }
@@ -144,4 +194,17 @@ input[type=range]::-moz-range-thumb {
     border-radius: 50%;
     background: var(--primary);  
     cursor: pointer;
-}
+  }
+
+  @media only screen and (max-width: 767px) {
+
+      /* Ajouter des styles pour les écrans de moins de 767px de largeur */
+      .form-control5 textarea {
+          width: 80%;
+          max-width: 90%;
+      }
+s
+      .form-control5 label {
+          margin-bottom: 5px;
+      }
+  }
