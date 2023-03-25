@@ -14,19 +14,7 @@ class PropertyModel extends Model {
     $pieces = $_POST['parts'];
     $chambres = $_POST['rooms'];
 
-
-    // echo $ville . '<br>';
-    // echo $locOuAchat . '<br>';
-    // echo $appartement . '<br>';
-    // echo $maison . '<br>';
-    // echo $prix . '<br>';
-    // echo $superficie . '<br>';
-    // echo $pieces . '<br>';
-    // echo $chambres . '<br>';
-
-
-
-    $sql = "SELECT * FROM Property WHERE etat = '$locOuAchat' AND superficie >= '$superficie' AND pieces >= '$pieces' AND chambres >= '$chambres'";
+    $sql = "SELECT prix, intitule, idProperty FROM Property WHERE etat = '$locOuAchat' AND superficie >= '$superficie' AND pieces >= '$pieces' AND chambres >= '$chambres'";
 
     $params = array();
     
@@ -56,33 +44,15 @@ class PropertyModel extends Model {
       $params[] = 'Maison';
     }
 
-    
-
-    // if($prix == 3000 && $locOuAchat == 'Location'){
-    //   $sql .= 'AND prix >=3000';
-    //   // $params[] = $prix;
-    //  } else if($prix == 1000000 && $locOuAchat == 'Achat'){
-    //   $sql .= 'AND prix >= 1000000';
-   
-    //  } 
-
-    //  else {
-    //   $sql .= "AND prix >= $prix";
-    //   // $params[] = $prix;
-    //  }
-
-
-
-
      $properties = $this->executeRequest($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
      return $properties;
- 
   }
 
 
   // Renvoie les informations sur un billet
   public function getProperty($idProperty) {
-    $sql = 'SELECT * FROM Property where id = ';
+
+    $sql = "SELECT * FROM Property WHERE idProperty=?";
     $property = $this->executeRequest($sql, array($idProperty));
     if ($property->rowCount() == 1)
       return $property->fetch();  // Accès à la première ligne de résultat

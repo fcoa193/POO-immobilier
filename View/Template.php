@@ -14,10 +14,10 @@
 <body>
     <header>
        <div class= "divHeader">
-        <div class= "logoHeader">
+        <a href="index.php" class= "logoHeader">
             <img  src="Tools/Assets/logo.png" alt="le logo du site ">
             <h1 class="title1">Immo&Co</h1>
-        </div>
+        </a>
         <?php if($_GET['action'] === "Login"){ ?>
 
 
@@ -44,12 +44,12 @@
       <div class= "adress">
        <span>Adresse : 10 place Victor Hugo, </span>
         <span>38000 Grenoble</span>
-       <span > Email : services@immo-co.org</span>
-        <span>    Tel : 04 01 23 01 23</span> 
+       <span>Email : services@immo-co.org</span>
+        <span>Tel : 04 01 23 01 23</span> 
       </div>
       <div class="span1">
-        <span class="span2"> Conditions générales </span>
-        <span class="span3"> Confidentialité</span>
+        <a href="#"> Conditions générales </a>
+        <a href="index.php?action=Login" class="admin">Accès administateurs</a>
       </div>  
       
       <div  class="span4">© 2023 Immo&Co, Inc.</div>  

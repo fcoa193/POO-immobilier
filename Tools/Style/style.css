@@ -13,6 +13,9 @@
     font-family: 'Sen', sans-serif;
 }
 
+*::selection{
+ background: var(--primary);
+}
 
 body{
     background-color: var(--secondary);
@@ -51,11 +54,16 @@ header{
     font-family: 'Sora', sans-serif;
 }
 
-.logoHeader {
+a.logoHeader {
     display: flex;
     align-items:center;
     justify-content: space-between;
-    padding: 10px 0;
+    padding: 10px 0 !important;
+    /* pour centrer horizontalement */
+}
+
+a.logoHeader:hover {
+  background: none !important;
     /* pour centrer horizontalement */
 }
 
@@ -84,6 +92,19 @@ footer{
     padding-top: 25px;
     margin-top: 50px;
 }
+
+footer a{
+    color: white;
+    text-decoration: none;
+    transition: 500ms;
+}
+
+footer a:hover{
+    color: var(--primary);
+    transform: scale(1.02);
+    text-decoration:underline;
+}
+
 
 .divLogo{
 display: flex;

@@ -10,13 +10,19 @@
   }
 
   .login-container .title{
-    margin: 50px auto;
+    margin: 0 auto 50px auto;
   }
   
   .login-container h2 {
     text-align: center;
   }
   
+  main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   .icon img {
     margin: auto;
     width: 100px;

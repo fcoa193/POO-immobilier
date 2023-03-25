@@ -31,25 +31,26 @@
     margin: 0 10px;
   }
 #dot1{
-    background: #5EC2B0;
+    border-right: var(--primary) 10px solid;
+    border-left: var(--hover) 10px solid;
     animation: jump 500ms forwards;
 }
 
 #dot2{
-    background: #FFCE61;
+    border-top: var(--primary) 10px solid;
+    border-bottom: var(--hover) 10px solid;
     animation: jump 500ms 250ms forwards;
 }
 
 #dot3{
-    background: #005BE9;
+    border-left: var(--primary) 10px solid;
+    border-right: var(--hover) 10px solid;
     animation: jump 500ms 500ms forwards;
 } 
 
 @keyframes jump {
     0% {
-    
       transform: translateY(0);
-      
     }
     50% {
       transform: translateY(-50px);
@@ -304,6 +305,18 @@ section.real-estate-ad{
   padding: 2%;
 }
 
+.no-result{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    line-height: 15px;
+}
+.no-result p{
+    font-size: 16px;
+    line-height: 20px;
+}
+
 section.real-estate-ad article{
     width: 100%;
   height: 370px;
@@ -367,10 +380,7 @@ section.real-estate-ad h2 {
     height: 35%;
     border-radius: 15px;
     background: linear-gradient(#00000000, #000000b4);
-  
 }
-
-
   
 /*Responsive*/
 @media (min-width : 768px){
@@ -410,6 +420,11 @@ section.real-estate-ad h2 {
     /*Annonces*/
     section.real-estate-ad article{
         width: 45%;
+    }
+
+    .no-result p{
+        font-size: 20px !important;
+        line-height: 20px;
     }
 }
 

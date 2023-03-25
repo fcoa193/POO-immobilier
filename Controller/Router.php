@@ -24,12 +24,11 @@ class Router {
        
         try {
             if (isset($_GET['action'])) {
-                
-               if($_GET['action'] == 'Property'){
-                    $this->ResultatCtrl->Resultat();
-                }
-                else if($_GET['action'] == 'Resultat'){
+                if($_GET['action'] == 'Resultat'){
                     $this->PropertyCtrl->Properties();
+                }
+                else if($_GET['action'] == 'Property'){
+                    $this->PropertyCtrl->Property();
                 }
                 else if($_GET['action'] == 'Login'){
                     $this->LoginCtrl->Login();

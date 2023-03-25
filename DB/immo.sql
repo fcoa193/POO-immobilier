@@ -40,6 +40,7 @@ CREATE TABLE IF NOT EXISTS `immo`.`Property` (
   `cave` TINYINT NULL,
   `ascenseur` TINYINT NULL,
   `description` TEXT NULL,
+  `etage` TINYINT NULL,
   PRIMARY KEY (`idProperty`))
 ENGINE = InnoDB;
 
@@ -50,15 +51,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `immo`.`Admin` (
   `idAdmin` INT NOT NULL,
   `identifiant` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NULL,
-  `Property_idProperty` INT NOT NULL,
-  PRIMARY KEY (`idAdmin`),
-  INDEX `fk_Admin_Property1_idx` (`Property_idProperty` ASC),
-  CONSTRAINT `fk_Admin_Property1`
-    FOREIGN KEY (`Property_idProperty`)
-    REFERENCES `immo`.`Property` (`idProperty`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
+  `password` VARCHAR(45) NULL)
 ENGINE = InnoDB;
 
 

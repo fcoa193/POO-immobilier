@@ -97,9 +97,15 @@
 
     <section class="real-estate-ad">
       <?php
+      if($data == Null){
+        echo '<div class="no-result"><p>Aucuns biens ne correponds à votre recherche.</p>
+        <p>Veuillez élargir vos critères de recherches.</p></div>';
+      } else{
+
+      }
       foreach ($data as $property) {?>
-        <article class="appartment-card">
-      <a href="#">
+    <article class="appartment-card">
+      <a href="index.php?action=Property&id=<?= $property['idProperty']?>">
         <div class="card-shadow"></div>
         <div class="title-price">
             <h2><?=$property['intitule']?></h2>
@@ -118,5 +124,5 @@
 
 
 <?php 
-$title = "Recherche - Immo&Co";
+
 ?>
