@@ -33,6 +33,15 @@ class Router {
                 else if($_GET['action'] == 'Login'){
                     $this->LoginCtrl->Login();
                 }
+
+                else if($_GET['action'] == 'AddProperty'){
+                    $this->PropertyCtrl->AddProperty();
+                }
+
+                else if($_GET['action'] == 'EditProperty'){
+                    $this->PropertyCtrl->EditProperty();
+                }
+
                 else if($_GET['action'] == ''){
                     
                 }
