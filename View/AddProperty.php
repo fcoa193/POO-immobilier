@@ -1,16 +1,17 @@
 <?php ob_start();?>
 
 <main>
-        <form method="POST" action="">
-                    <label for="villeAdresse">Ville :</label>
-                    <input type="text" id="ville" name="ville">
+        <form method="POST" action="index.php?action=AddProperty">
+                    <div class='flex'>
+                        <label for="villeAdresse">Ville :</label>
+                        <input type="text" id="ville" name="ville">
 
-                    <label for="Adresse">Adresse :</label>
-                    <input type="text" id="adresse" name="adresse">
+                        <label for="Adresse">Adresse :</label>
+                        <input type="text" id="adresse" name="adresse">
 
-                    <label for="codePostal">Code postal :</label>
-                    <input type="text" id="codePostal" name="code_postal">
-
+                        <label for="codePostal">Code postal :</label>
+                        <input type="text" id="codePostal" name="code_postal">
+                    </div>
 
                     <h2><i class="fa-solid fa-sliders"></i>Filtrer</h2>
                     <div class="form-control type">
@@ -50,10 +51,12 @@
                         <input type="range" name="chambres" min="1" max="">
                         <span class="output"><span class="value"></span></span>
                     </div>
+                    ok tu me casse 
                     <input type="submit" value="Ajouter">
+                    les couilles 
         </form>
     </main>
-    
+
     <script src="../Tools/Js/form.js" defer></script>
 
 <?php 

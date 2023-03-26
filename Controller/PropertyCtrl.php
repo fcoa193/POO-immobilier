@@ -73,9 +73,9 @@ class PropertyCtrl {
             $result = $this->property->saveProperty($adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
 
             // $property = $this->property->getProperty();
-            
-            $vue = new Vue('AddProperty');
-            $vue->generate(); 
+
+            $view = new View('AddProperty');
+            $view->generate(); 
         }
         else {
             echo "<p> Une erreur est survenue</p>";
@@ -103,49 +103,51 @@ class PropertyCtrl {
 
 
 
-    // Mettre à jour une propriété
-    public function EditProperty(){ 
-        $idProperty = $_GET['id_property'];
-        if (!empty($_POST)) {
-    // Récupérer les informations de l'employe à partir du formulaire
-            $adresse = $_POST['adresse'];
-            $code_postal = $_POST['code_postal'];
-            $ville = $_POST['ville'];
-            $etat = $_POST['etat'];
-            $type = $_POST['type'];
-            $intitule = $_POST['intitule'];
-            $prix = $_POST['prix'];
-            $etage = $_POST['etage'];
-            $superficie = $_POST['superficie'];
-            $pieces = $_POST['pieces'];
-            $chambres = $_POST['chambres'];
-            $photos = $_POST['photos'];
-            $meuble = $_POST['meuble'];
-            $piscine = $_POST['piscine'];
-            $balcon = $_POST['balcon'];
-            $jardin = $_POST['jardin'];
-            $garage = $_POST['garage'];
-            $cave = $_POST['cave'];
-            $ascenseur = $_POST['ascenseur'];
-            $description = $_POST['description'];
+    // // Mettre à jour une propriété
+    // public function EditProperty(){ 
 
-            $result = $this->property->updateProperty($adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+    //     $idProperty = $_GET['idProperty'];
+  
+    //     if (!empty($_POST)) {
+    // // Récupérer les informations de l'employe à partir du formulaire
+    //         $adresse = $_POST['adresse'];
+    //         $code_postal = $_POST['code_postal'];
+    //         $ville = $_POST['ville'];
+    //         $etat = $_POST['etat'];
+    //         $type = $_POST['type'];
+    //         $intitule = $_POST['intitule'];
+    //         $prix = $_POST['prix'];
+    //         $etage = $_POST['etage'];
+    //         $superficie = $_POST['superficie'];
+    //         $pieces = $_POST['pieces'];
+    //         $chambres = $_POST['chambres'];
+    //         $photos = $_POST['photos'];
+    //         $meuble = $_POST['meuble'];
+    //         $piscine = $_POST['piscine'];
+    //         $balcon = $_POST['balcon'];
+    //         $jardin = $_POST['jardin'];
+    //         $garage = $_POST['garage'];
+    //         $cave = $_POST['cave'];
+    //         $ascenseur = $_POST['ascenseur'];
+    //         $description = $_POST['description'];
 
-
-            $property = $this->property->getProperty();
-            $vue = new Vue('EditProperty');
-            $vue->generate();
-        }
-        else{
-            echo "<p> Une erreur est survenue</p>";
-        }
-    }
+    //         $result = $this->property->updateProperty($adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
 
 
-    // Supprimer une propriété
-    public function deleteProperty() {
-        $idProperty = $_GET['id'];
+    //         $property = $this->property->getProperty($idProperty);
+    //         $view = new View('EditProperty');
+    //         $view->generate();
+    //     }
+    //     else{
+    //         echo "<p> Une erreur est survenue</p>";
+    //     }
+    // }
 
-        $result = $this->property->deleteProperty($idProperty);
-    }
+
+    // // Supprimer une propriété
+    // public function deleteProperty() {
+    //     $idProperty = $_GET['id'];
+
+    //     $result = $this->property->deleteProperty($idProperty);
+    // }
 }

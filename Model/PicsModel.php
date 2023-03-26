@@ -29,7 +29,7 @@
 //     return $result;
 //   }
 
-// public function deletePic(){ 
+// public function deletePhoto(){ 
 //     $sql = "DELETE FROM image WHERE id = ".$idphotos;
 //     $result = $this->executerRequete($sql);
 //     return $result;
