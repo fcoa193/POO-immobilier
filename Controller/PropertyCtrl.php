@@ -41,20 +41,23 @@ class PropertyCtrl {
 
     // // Afficher addproperty
     // public function AddProperty() {
-    //   $view = new View('AddProperty');
-    //   $view->generate();
+      // $view = new View('AddProperty');
+      // $view->generate(array('property' => $property));
     // }
 
     // créer une propriété
     public function AddProperty() {
+
+        $view = new View('AddProperty');
+        $view->generate(array('property' => $property));
+
         if (!empty($_POST)) {
             // Récupérer les informations de la propriété à partir du formulaire
+            $ville = $_POST['ville'];
             $adresse = $_POST['adresse'];
             $code_postal = $_POST['code_postal'];
-            $ville = $_POST['ville'];
             $etat = $_POST['etat'];
             $type = $_POST['type'];
-            $intitule = $_POST['intitule'];
             $prix = $_POST['prix'];
             $etage = $_POST['etage'];
             $superficie = $_POST['superficie'];
@@ -70,13 +73,8 @@ class PropertyCtrl {
             $ascenseur = $_POST['ascenseur'];
             $description = $_POST['description'];
 
-            $result = $this->property->saveProperty($adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
-
-            // $property = $this->property->getProperty();
-
-            $view = new View('AddProperty');
-            $view->generate(); 
-        }
+            $result = $this->property->saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+          }
         else {
             echo "<p> Une erreur est survenue</p>";
         }

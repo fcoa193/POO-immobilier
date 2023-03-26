@@ -60,24 +60,25 @@ class PropertyModel extends Model {
       throw new Exception("Property introuvable");
     }
 
-    // addProperty
-    function saveProperty($adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description){ 
+  // addProperty         VOIR POUR PHOTOS
+    public function saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description){ 
     
-        $sql= "INSERT INTO Property (adresse, code_postal, ville, etat, type, intitule, prix, etage, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description) 
-        VALUES ('".$adresse.", ".$code_postal.",".$ville.",".$etat.", ".$type.",".$intitule.", ".$prix.", ".$etage.", ".$superficie.", ".$pieces.", ".$chambres.", ".$photos.", ".$meuble.", ".$piscine.", ".$balcon.", ".$jardin.", ".$garage.", ".$cave.",".$ascenseur.", ".$description.")";
+      $sql= "INSERT INTO Property (adresse, code_postal, ville, etat, type, intitule, prix, etage, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description) 
+      VALUES ('".$ville."','".$adresse."', '".$code_postal."', '".$etat."', '".$type."', '".$intitule."', '".$prix."', '".$etage."', '".$superficie."', '".$pieces."', '".$chambres."', '".$photos."', '".$meuble."', '".$piscine."', '".$balcon."', '".$jardin."', '".$garage."', '".$cave."', '".$ascenseur."', '".$description."')";
+
         $result= $this->executerRequete($sql);
 
         return $result;
     }
 
-  function updateProperty($adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description){ 
+  // function updateProperty($adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description){ 
  
-    $sql= "UPDATE Property SET adresse = '".$adresse."', code_postal = '".$code_postal."', ville = '".$ville.", etat = '".$etat."', type = '".$type."', intitule = '".$intitule.", prix = ".$prix.", etage = '".$etage.", superficie = ".$superficie.", pieces= ".$pieces.", chambres = ".$chambres.", photos= ".$photos.", meuble= ".$meuble.", piscine = ".$piscine.", balcon= ".$balcon.", jardin = ".$jardin.", garage= ".$garage.", cave = ".$cave.", ascenseur = ".$ascenseur.", description= ".$description."
-     WHERE idProperty = ".$idProperty;
-    $result= $this->executerRequete($sql);
+  //   $sql= "UPDATE Property SET adresse = '".$adresse."', code_postal = '".$code_postal."', ville = '".$ville.", etat = '".$etat."', type = '".$type."', intitule = '".$intitule.", prix = ".$prix.", etage = '".$etage.", superficie = ".$superficie.", pieces= ".$pieces.", chambres = ".$chambres.", photos= ".$photos.", meuble= ".$meuble.", piscine = ".$piscine.", balcon= ".$balcon.", jardin = ".$jardin.", garage= ".$garage.", cave = ".$cave.", ascenseur = ".$ascenseur.", description= ".$description."
+  //    WHERE idProperty = ".$idProperty;
+  //   $result= $this->executerRequete($sql);
     
-    return $result;
-  }
+  //   return $result;
+  // }
   
 //     function deleteProperty($idProperty){ 
 //         $sql = "DELETE FROM property WHERE idProperty = ".$idProperty;

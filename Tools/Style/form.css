@@ -146,3 +146,18 @@ input[type=range]::-moz-range-thumb {
     background: var(--primary);  
     cursor: pointer;
 }
+#autre{
+    display: flex !important;
+    flex-wrap: wrap !important;
+}
+.autre{
+    text-align: center !important;
+    margin: auto !important;
+    margin-bottom: 30px !important;
+}
+.autre_div{
+    margin-bottom: 30px !important;
+}
+.mid{
+    margin: auto;
+}
