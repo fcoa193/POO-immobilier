@@ -25,11 +25,14 @@ class LoginCtrl {
     $password = $_POST['pw'];
 
     $admin = $this->admin->getAdmin($id);
+    var_dump($admin);
     // && password_verify($password, $admin['password']
     if(!isset($_SESSION['id'])){
       if($admin != false){
         if(password_verify($password, $admin['password'])){
+          
           $_SESSION['id'] = $admin['idAdmin'];
+          echo $_SESSION['id'];
           $view = new View('Accueil');
           $view->generate();
         } else{

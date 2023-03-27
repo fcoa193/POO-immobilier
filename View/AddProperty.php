@@ -1,26 +1,55 @@
-
-
 <main>
-        <form action="">
-               
+        <form method="POST" action="index.php?action=AddProperty">
                     <h2><i class="fa-solid fa-sliders"></i>Filtrer</h2>
+                    <div class='flex'>
+                        <div class='form-control'>
+                            <label for="villeAdresse">Ville</label>
+                            <input type="text" id="ville" class="mid" name="ville">
+                        </div>
+                        <div class='form-control'>
+                            <label for="Adresse">Adresse</label>
+                            <input type="text" id="adresse" class="mid" name="adresse">
+                        </div>
+                        <div class='form-control'>
+                            <label for="codePostal">Code postal</label>
+                            <input type="text" id="codePostal" class="mid" name="code_postal">
+                        </div>
+                    </div>
+                    <div class="form-control etat">
+                        <label for="etat">État</label>
+                        <div>
+                            <div>
+                                <input type="checkbox" name="etat" id="location" checked/>
+                                <label for="location" value="1">Location</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="etat" id="vente" checked/>
+                                <label for="vente" value="1">Vente</label>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-control type">
                         <label for="type">Type</label>
                         <div>
                             <div>
                                 <input type="checkbox" name="type" id="appartement" checked/>
-                                <label for="appartement">Appartement</label>
+                                <label for="appartement" value="1">Appartement</label>
                             </div>
                             <div>
                                 <input type="checkbox" name="type" id="maison" checked/>
-                                <label for="maison">Maison</label>
+                                <label for="maison" value="1">Maison</label>
                             </div>
                         </div>
                     </div>
                     <div class="form-control">
                         <label for="maxprice">Prix max</label>
-                        <input type="range" name="maxprice" value="0" min="0" max="1000000">
+                        <input type="range" name="prix" value="0" min="0" max="1000000">
                         <span class="output"><span class="value"></span>€</span>
+                    </div>
+                    <div class="form-control">
+                        <label for="parts">Étage</label>
+                        <input type="range" name="etage" min="1" max="10">
+                        <span class="output"><span class="value"></span></span>
                     </div>
                     <div class="form-control">
                         <label for="superficie">Surface min</label>
@@ -29,19 +58,61 @@
                     </div>
                     <div class="form-control">
                         <label for="parts">Pièces</label>
-                        <input type="range" name="parts" min="1" max="7">
+                        <input type="range" name="pieces" min="1" max="7">
                         <span class="output"><span class="value"></span></span>
                     </div>
                     <div class="form-control">
                         <label for="rooms">Chambres</label>
-                        <input type="range" name="rooms" min="1" max="">
+                        <input type="range" name="chambres" min="1" max="">
                         <span class="output"><span class="value"></span></span>
+                    </div>
+
+                    <div class="form-control" id="file">
+                        <label for="photo">Photos</label>
+                        <input type="file" name="photos" class='photo' multiple>
+                    </div>
+
+
+                    <div class="form-control type" id='autre'>
+                        <label for="autres" class='autre'>Autres</label>
+                        <div class="autre_div">
+                            <div>
+                                <input type="checkbox" name="meuble" id="meuble" value="1" checked/>
+                                <label for="meuble">Meublé</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="piscine" id="piscine" value="1" checked/>
+                                <label for="piscine">Piscine</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="balcon" id="balcon" value="1" checked/>
+                                <label for="balcon">Balcon</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="jardin" id="jardin" value="1" checked/>
+                                <label for="jardin">Jardin</label>
+                            </div>
+                        </div>
+                        <div>
+                            <div>
+                                <input type="checkbox" name="garage" id="garage" value="1" checked/>
+                                <label for="garage">Garage</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="cave" id="cave" value="1" checked/>
+                                <label for="cave">Cave</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" name="ascenseur" id="ascenseur" value="1" checked/>
+                                <label for="ascenseur">Ascenseur</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-control">
+                        <label for="description">Description</label>
+                        <textarea name="description" class="mid" cols="30" rows="10"></textarea>
                     </div>
                     <input type="submit" value="Ajouter">
         </form>
-        <script src="Tools/Js/form.js" defer></script>
-
-    </main>
-
-
-
+</main>
+    <script src="Tools/Js/form.js" defer></script>

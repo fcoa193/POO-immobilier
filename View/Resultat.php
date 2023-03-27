@@ -1,4 +1,4 @@
-
+<?php ob_start();?>
 <div id="loader">
     <div id="dot1"></div>
     <div id="dot2"></div>
@@ -118,12 +118,14 @@
         </div>
         <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
       </a>
+      <?php if(isset($_SESSION['id'])){?>
       <div class="btn-group">
-        <a id="edit-btn" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
-        <a id="delete-btn" href="#"><i class="fa-solid fa-trash"></i></a>
+        <a id="delete-btn" href="index.php?action=DeleteProperty"><i class="fa-solid fa-trash"></i></a>
+        <a id="edit-btn" href="index.php?action=EditProperty"><i class="fa-solid fa-pen-to-square"></i></a>
       </div>
+      <?php }}?>
     </article>
-    <?php }?>
+    
 
     </section>
     </main>

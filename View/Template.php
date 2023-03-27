@@ -17,16 +17,14 @@
         <a href="index.php" class= "logoHeader">
             <img  src="Tools/Assets/logo.png" alt="le logo du site ">
             <h1 class="title1">Immo&Co</h1>
-            <?php if(isset($_SESSION['id'])){
-            ?>
+            <?php if(isset($_SESSION['id'])){?>
               <span style="color:black; font-size:16px">&nbsp;&nbsp;Admin</span>
-
             <?php }?>
           </a>
         <div>
-        <?php if(isset($_SESSION['id'])){?>
+        <?php if(isset($_SESSION['id'])){ echo $_SESSION['id'];?>
           <?php if($_GET['action'] === "Accueil" || !isset($_GET['action'])){ ?>
-
+            
             <a href="index.php?action=AddProperty"><span>Ajouter un bien</span><i class="fa-solid fa-plus"></i></a>
           <a href="index.php?action=Logout"><i class="fa-solid fa-power-off"></i></a>
             <?php }else{?>

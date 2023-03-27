@@ -14,16 +14,12 @@ searchInput.oninput = () => {
             suggestionContainer.style.display = "flex"
             suggestionContainer.innerHTML = "";
             data.forEach(city => {
-                suggestionContainer.innerHTML += `<span class='suggestion' onclick="replace(this)">${city.nom}</span>`
+                suggestionContainer.innerHTML += `<span class='suggestion'>${city.nom}</span>`
             });
-            // const suggestionArr =  document.querySelectorAll('#suggestion .suggestion')
-            // console.log(suggestionArr)
+
             let i = 0;
             let selected = 0;
             document.onkeyup = (e) => {
-                // const suggestionArr =  document.querySelectorAll('#suggestion .suggestion')
-                // console.log(suggestionArr);
-                console.log(selected);
                 if (e.keyCode === 38) {
                     console.log('up');
                     if(i === 1){
@@ -85,12 +81,3 @@ function replace(suggestion) {
     suggestionContainer.style.display = "none"
 }
 
-// searchInput.onfocus = (e) => {
-// console.log(suggestionArr)
-//     document.onkeyup = (e) => {
-//         const suggestionArr =  document.querySelectorAll('#suggestion .suggestion')
-
-//         if (e.keyCode === 38) 
-//         if (e.keyCode === 40) console.log('down')
-//     }
-// }

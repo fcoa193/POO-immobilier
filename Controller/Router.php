@@ -19,7 +19,7 @@ class Router {
     
     // Traite une requête entrante
     public function routerRequest() {
-       session_start();
+        session_start();
         try {
             if (isset($_GET['action'])) {
                 if($_GET['action'] == 'Resultat'){
@@ -31,12 +31,22 @@ class Router {
                 else if($_GET['action'] == 'Login'){
                     $this->LoginCtrl->Login();
                 }
-                else if($_GET['action'] == 'Accueil'){
-                    $this->LoginCtrl->ExecuteLogin();
+                else if($_GET['action'] == 'AddProperty'){
+                    $this->PropertyCtrl->AddProperty();
                 }
                 else if($_GET['action'] == 'Logout'){
                     $this->LoginCtrl->Logout();
                 }
+                else if($_GET['action'] == 'EditProperty'){
+                    $this->PropertyCtrl->EditProperty();
+                }
+                else if($_GET['action'] == 'DeleteProperty'){
+                    $this->PropertyCtrl->DeleteProperty();
+                }
+                else if($_GET['action'] == 'Accueil'){
+                    $this->AccueilCtrl->Accueil();
+                }
+
                 else
                     throw new Exception("Action non valide");
                 }          

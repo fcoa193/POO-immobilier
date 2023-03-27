@@ -1,6 +1,6 @@
 <main>
     <li>
-        <a href="#" onclick=retour()>Retour</a>
+        <button onclick=history.back()>Retour</button>
     </li>
     <div class="diapo" data-speed="2000" data-transition="700">
         <div class="elements">

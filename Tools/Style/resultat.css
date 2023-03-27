@@ -357,7 +357,6 @@ section.real-estate-ad .btn-group{
 }
 
 section.real-estate-ad .btn-group a{
-    padding: 8px;
     margin-left: 2px;
     border-radius: 50px;
     color: white;
@@ -365,7 +364,7 @@ section.real-estate-ad .btn-group a{
 
 section.real-estate-ad .btn-group #edit-btn{
     background: var(--primary);
-    padding: 8px 10px;
+    padding: 8px 8px 8px 10px;
 }
 
 section.real-estate-ad .btn-group #edit-btn:hover{
@@ -374,6 +373,7 @@ section.real-estate-ad .btn-group #edit-btn:hover{
 
 section.real-estate-ad .btn-group #delete-btn{
     background: var(--black);
+    padding: 8px 11px;
 }
 
 section.real-estate-ad .btn-group #delete-btn:hover{

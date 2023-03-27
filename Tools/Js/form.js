@@ -38,22 +38,22 @@ inputRange.forEach(el => {
     }
 });
 
-/* Changer l'échelle des input range des prix en fonction du code */
-const selectValue = document.querySelector('select')
-const maxPriceRange = document.querySelector("input[name='maxprice']")
+// /* Changer l'échelle des input range des prix en fonction du code */
+// const selectValue = document.querySelector('select')
+// const maxPriceRange = document.querySelector("input[name='maxprice']")
 
 
-selectValue.onchange = () => {
-    if(selectValue.value == 'Location'){
-        maxPriceRange.max = 3000;
-        maxPriceRange.value = 3000;
-        maxPriceRange.nextElementSibling.querySelector('.value').innerHTML = '+' + 3000
+// selectValue.onchange = () => {
+//     if(selectValue.value == 'Location'){
+//         maxPriceRange.max = 3000;
+//         maxPriceRange.value = 3000;
+//         maxPriceRange.nextElementSibling.querySelector('.value').innerHTML = '+' + 3000
         
-    } else{
-        maxPriceRange.max = 1000000;
-        maxPriceRange.value = 1000000;
-        maxPriceRange.nextElementSibling.querySelector('.value').innerHTML = '+' + 1000000
-    }
-}
+//     } else{
+//         maxPriceRange.max = 1000000;
+//         maxPriceRange.value = 1000000;
+//         maxPriceRange.nextElementSibling.querySelector('.value').innerHTML = '+' + 1000000
+//     }
+// }
 
 
