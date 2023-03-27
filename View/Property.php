@@ -1,6 +1,6 @@
 <main>
     <li>
-        <a href="#" onclick=history.back()>Retour</a>
+        <a href="#" onclick=retour()>Retour</a>
     </li>
     <div class="diapo" data-speed="2000" data-transition="700">
         <div class="elements">
@@ -123,6 +123,8 @@
             </section>
     </div>
 </main>
+
+    
 
 <script src="Tools/Js/slider.js"></script>
 

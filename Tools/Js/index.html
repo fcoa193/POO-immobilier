@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h4>Formulaire d'ajout</h4>
+    <form>
+        <div>
+            <label for="cp">Code postal :</label> <br>
+            <input type="number" name="cp" maxlength="5" min="0">
+            <p class="cp-introuvable"></p>
+        </div>
+        <div>
+            <label for="cp">Ville :</label> <br>
+            <input type="text" minlength="2" name="ville" readonly>
+        </div>
+
+    </form>
+</body>
+<script src="./cities.js"></script>
+</html>

@@ -1,4 +1,4 @@
-<?php ob_start();?>
+
 <div id="loader">
     <div id="dot1"></div>
     <div id="dot2"></div>
@@ -15,10 +15,15 @@
                 <?php } else if($_POST['louer-acheter'] == 'Location') {?>
                     <option value="Location" selected>Louer</option>
                     <option value="Achat">Acheter</option>
+                <?php } else {?>
+                    <option value="Location">Louer</option>
+                    <option value="Achat" selected>Acheter</option>
                 <?php }?>
             </select>
             <div class="box">
-                    <input name="city" type="text" placeholder="Ex : Annecy" value="<?=$_POST['city']?>">
+                    <input name="city" type="text" placeholder="Ex : Annecy" autocomplete="off" value="<?=$_POST['city']?>">
+                    <div id="suggestion">
+                    </div>
                 <div>
                     <input type="submit" value="🔎">
                 </div>
@@ -113,6 +118,10 @@
         </div>
         <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
       </a>
+      <div class="btn-group">
+        <a id="edit-btn" href="#"><i class="fa-solid fa-pen-to-square"></i></a>
+        <a id="delete-btn" href="#"><i class="fa-solid fa-trash"></i></a>
+      </div>
     </article>
     <?php }?>
 
@@ -121,8 +130,5 @@
 
     <script src="Tools/Js/form.js" defer></script>
     <script src="Tools/Js/filter.js" defer></script>
+    <script src="Tools/Js/searchSuggestion.js" defer></script>
 
-
-<?php 
-
-?>

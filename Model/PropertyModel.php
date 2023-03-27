@@ -51,7 +51,6 @@ class PropertyModel extends Model {
 
   // Renvoie les informations sur un billet
   public function getProperty($idProperty) {
-
     $sql = "SELECT * FROM Property WHERE idProperty=?";
     $property = $this->executeRequest($sql, array($idProperty));
     if ($property->rowCount() == 1)

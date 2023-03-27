@@ -1,4 +1,4 @@
-<?php ob_start();?>
+
 
 <main>
         <form action="">
@@ -39,12 +39,9 @@
                     </div>
                     <input type="submit" value="Ajouter">
         </form>
-    </main>
-    <script src="../Tools/Js/form.js" defer></script>
+        <script src="Tools/Js/form.js" defer></script>
 
-<?php 
-$title = "Ajouter un bien - Immo&Co";
-$style = '../Tools/Style/form.css';
-$content = ob_get_clean();
-require './Template.php' ?>
+    </main>
+
+
 

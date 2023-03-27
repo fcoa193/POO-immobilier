@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS `immo`.`Property` (
   `ville` VARCHAR(45) NULL,
   `etat` VARCHAR(45) NULL,
   `type` VARCHAR(45) NULL,
-  `intitule` VARCHAR(45) NULL,
+  `intitule` VARCHAR(100) NULL,
   `prix` INT NULL,
   `superficie` INT NULL,
   `pieces` INT NULL,
@@ -49,9 +49,9 @@ ENGINE = InnoDB;
 -- Table `immo`.`Admin`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `immo`.`Admin` (
-  `idAdmin` INT NOT NULL,
+  `idAdmin` INT NOT NULL AUTO_INCREMENT,
   `identifiant` VARCHAR(45) NULL,
-  `password` VARCHAR(45) NULL)
+  `password` VARCHAR(100) NULL)
 ENGINE = InnoDB;
 
 
@@ -59,7 +59,7 @@ ENGINE = InnoDB;
 -- Table `immo`.`photos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `immo`.`photos` (
-  `idphotos` INT NOT NULL,
+  `idphotos` INT NOT NULL AUTO_INCREMENT,
   `photo` VARCHAR(45) NULL,
   `Property_idProperty` INT NOT NULL,
   PRIMARY KEY (`idphotos`),
@@ -75,3 +75,8 @@ ENGINE = InnoDB;
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
+
+
+-- INSERT INTO Property (idProperty, adresse, code_postal, ville, etat, type, intitule, prix, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, etage, description) VALUES
+-- (1, '5 rue de la paix', '38000', 'Grenoble', 'Location', 'Appartement', 'Joli appart', 760, 62, 3, 2, 0, 0, 1, 0, 1, 1, 1, 7, "Appartement proche de toutes commodité (transport, écoles, commerces), se situant à 2 pas du centre historique de Grenoble. Le quartier est calme et résidentiel et bénéficie d'une atmosphère familiale. L'appratement est agréable et lumineux et est idéal pour un jeune couple ou une collocation étudiante."),
+-- (2, '560 chemin des grenadier', '13600', 'La Ciotat', 'Achat', 'Maison', 'Belle maison près de la mer', 790000, 182, 6, 5, 1, 1, 0, 1, 0, 1, 1, 2, "Belle maison spacieuse à 150m de la plage de La Ciotat. La maison bénéficie d'un grand jardin, et d'une piscine de 1080 litres. La cuisine et le salon se trouve au rez-de-chaussée. Quant aux chambres et à la salle de bain sont à l'étage. Le bien comprend aussi une cave et un garage au rdc. Parfaitement situé à La Ciotat, la maison est idéal pour une famille nombreuse.");

@@ -6,7 +6,7 @@ private $file;
 // Titre de la vue (défini dans le fichier vue)
 private $title;
 
-public function __construct($action) {
+public function __construct($action, $errorLogin = Null) {
   if($action == 'AddProperty' || $action == 'EditProperty'){
     $this->style ="Tools/Style/form.css";
   }else{
@@ -39,11 +39,14 @@ switch ($action) {
 
   // Détermination du nom du fichier vue à partir de l'action
   $this->file = "View/" . $action . ".php";
+
+  // Message d'erreur de connexion
+  $this->errorLogin = $errorLogin;
 }
 
 // Génère et affiche la vue
 public function generate($data = null) {
-
+  session_start();
   // Génération de la partie spécifique de la vue
   $content = $this->generateFile($this->file, $data["property"]);
 

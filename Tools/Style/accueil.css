@@ -22,6 +22,7 @@ form .box{
     display: flex;
     width: 95%;
     margin-bottom: 15px;
+    position: relative;
 }
 
 select{
@@ -43,10 +44,36 @@ form input[type="text"]{
     outline: none;
 }
 
+#suggestion{
+    background: white;
+    position: absolute;
+    top: 35px;
+    width: calc(100% - 45px);
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px 0 10px 10px;
+    overflow: hidden;
+    border: 1px solid var(--border);    
+    border-top: 0;
+    z-index: 100;
+}
+
+#suggestion .suggestion{
+    padding: 10px 15px;
+    border-top: 1px solid var(--border);
+    transition: 500ms;
+    cursor: pointer;
+}
+
+#suggestion .suggestion:hover{
+    background: var(--border);
+    color: var(--primary);
+}
+
 form input[type="submit"]{
     min-width: 25px;
     height: 100%;
-    border-radius: 0 25px 25px 0;
+    border-radius: 0 25px 25px 0 ;
     width: 45px;
     border: none;
     background: var(--primary);
@@ -448,10 +475,12 @@ form input[type="checkbox"] {
     select{
         width: 20%;
     }
+    #suggestion{
+        width: calc(100% - 150px);
+    }
 
     form input[type="submit"]{
-        width: max-content;
-        padding: 0 3vw;
+        width: 150px;
         color: white;
         font-weight: 700;
     }

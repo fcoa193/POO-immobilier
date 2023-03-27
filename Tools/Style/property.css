@@ -8,12 +8,22 @@ main {
   padding: 0 2%;
 }
 
-li a{
+li button{
+  background: none;
+  border: none;
+  text-decoration : underline;
   color: var(--primary);
   font-style: normal;
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
+  transition: 500ms;
+}
+
+li button:hover{
+  background: var(--primary);
+  color: var(--secondary);
+  text-decoration: none;
 }
 
 main li{

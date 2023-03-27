@@ -1,3 +1,8 @@
+<div id="loader">
+    <div id="dot1"></div>
+    <div id="dot2"></div>
+    <div id="dot3"></div>
+</div>
 <div class="appart_title">
                 <img src="Tools/Assets/appart.jpg" class="appart_pic" alt="photo d'appartements">
                 <h1 class="title_accueil"> Trouver l'appartement de vos rêves !</h1>
@@ -10,7 +15,9 @@
                 <option value="Achat">Acheter</option>
             </select>
             <div class="box">
-                <input name="city" type="text" placeholder="Ex : Annecy">
+                    <input name="city" type="text" placeholder="Ex : Annecy" autocomplete="off" value="<?=$_POST['city']?>">
+                    <div id="suggestion">
+                    </div>
                 <div>
                     <input type="submit" value="🔎">
                 </div>
@@ -105,5 +112,6 @@
     </script>
     <script src="Tools/Js/form.js" defer></script>
     <script src="Tools/Js/filter.js" defer></script>
+    <script src="Tools/Js/searchSuggestion.js" defer></script>
 
 
