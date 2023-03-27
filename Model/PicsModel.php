@@ -22,8 +22,8 @@
 
 // public function setPic($photo){ 
    
-//     $sql= "INSERT INTO image (idphotos, photo) 
-//     VALUES ('".$idphotos."', '".$photo."')";
+//     $sql= "INSERT INTO image (photo) 
+//     VALUES ('".$photo."')";
 //     $result= $this->executerRequete($sql);
 
 //     return $result;

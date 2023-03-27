@@ -73,35 +73,36 @@ class PropertyCtrl {
             var_dump($_POST);
 
           // Créer un tableau contenant les informations de la propriété
-            // $property = array(
-            //   'ville' => $ville,
-            //   'adresse' => $adresse,
-            //   'code_postal' => $code_postal,
-            //   'etat' => $etat,
-            //   'type' => $type,
-            //   'prix' => $prix,
-            //   'etage' => $etage,
-            //   'superficie' => $superficie,
-            //   'pieces' => $pieces,
-            //   'chambres' => $chambres,
-            //   'meuble' => $meuble,
-            //   'piscine' => $piscine,
-            //   'balcon' => $balcon,
-            //   'jardin' => $jardin,
-            //   'garage' => $garage,
-            //   'cave' => $cave,
-            //   'ascenseur' => $ascenseur,
-            //   'description' => $description
-            // );
+            $property = array(
+              'ville' => $ville,
+              'adresse' => $adresse,
+              'code_postal' => $code_postal,
+              'etat' => $etat,
+              'type' => $type,
+              'prix' => $prix,
+              'etage' => $etage,
+              'superficie' => $superficie,
+              'pieces' => $pieces,
+              'chambres' => $chambres,
+              'meuble' => $meuble,
+              'piscine' => $piscine,
+              'balcon' => $balcon,
+              'jardin' => $jardin,
+              'garage' => $garage,
+              'cave' => $cave,
+              'ascenseur' => $ascenseur,
+              'description' => $description
+            );
 
 
             $view = new View('AddProperty');
             $view->generate($property);
 
             $result = $this->$property->saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
-
+            return $result;
+            
             if($result == true){
-              echo"yes yees";
+              echo"yes yes";
             }
           }
         else {

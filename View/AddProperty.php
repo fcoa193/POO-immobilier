@@ -67,6 +67,13 @@
                         <input type="range" name="chambres" min="1" max="">
                         <span class="output"><span class="value"></span></span>
                     </div>
+
+                    <div class="form-control" id="file">
+                        <label for="photo">Photos</label>
+                        <input type="file" name="photos" class='photo' multiple>
+                    </div>
+
+
                     <div class="form-control type" id='autre'>
                         <label for="autres" class='autre'>Autres</label>
                         <div class="autre_div">
