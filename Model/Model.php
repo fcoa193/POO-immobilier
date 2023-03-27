@@ -7,15 +7,20 @@ abstract class Model {
   private $bdd;
 
   // Exécute une requête SQL éventuellement paramétrée
+
   protected function executeRequest($sql, $params = null) {
-    if ($params == null) {
-      $resultat = $this->getBdd()->query($sql);    // exécution directe
+    try{
+      if ($params == null) {
+        $resultat = $this->getBdd()->query($sql);    // exécution directe
+      }
+      else {
+        $resultat = $this->getBdd()->prepare($sql);  // requête préparée
+        $resultat->execute($params);
+      }
+      return $resultat;
+    } catch (Exception $e){
+    echo 'Caught exception: ',  $e->getMessage(), "\n";
     }
-    else {
-      $resultat = $this->getBdd()->prepare($sql);  // requête préparée
-      $resultat->execute($params);
-    }
-    return $resultat;
   }
 
   // Renvoie un objet de connexion à la BD en initialisant la connexion au besoin
@@ -24,7 +29,7 @@ abstract class Model {
         $user = getenv('USER');
         $password = getenv('PASSWORD');
       // Création de la connexion
-      $this->bdd = new PDO('mysql:host=localhost;dbname=immo;charset=utf8',
+      $this->bdd = new PDO('mysql:host=localhost;port=8889;dbname=immo;charset=utf8',
       $user, $password, array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
     }
     return $this->bdd;

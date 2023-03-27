@@ -99,11 +99,8 @@ class PropertyCtrl {
             $view->generate($property);
 
             $result = $this->$property->saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+
             return $result;
-            
-            if($result == true){
-              echo"yes yes";
-            }
           }
         else {
             echo "<p> Une erreur est survenue</p>";

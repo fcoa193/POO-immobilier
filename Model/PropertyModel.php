@@ -63,11 +63,10 @@ class PropertyModel extends Model {
   // addProperty        
     public function saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description){ 
 
-      $sql = executeRequest($sql, $params = null);
-
-      $sql = "INSERT INTO Property (ville, adresse, code_postal, etat, type, prix, etage, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description) 
-      VALUES ('$ville', '$adresse', '$code_postal', '$etat', '$type', '$prix', '$etage', '$superficie', '$pieces', '$chambres', '$meuble', '$piscine', '$balcon', '$jardin', '$garage', '$cave', '$ascenseur', '$description')";
-      $result = $sql->execute();
+    
+      $sql = "INSERT INTO property (ville, adresse, code_postal, etat, type, prix, etage, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description) 
+      VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+      $result = $this->executeRequest($sql, array($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description))->fetchAll();
 
       var_dump($result);
 
