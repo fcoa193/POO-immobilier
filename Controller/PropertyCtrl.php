@@ -46,10 +46,8 @@ class PropertyCtrl {
     // }
 
     // créer une propriété
+    
     public function AddProperty() {
-
-        $view = new View('AddProperty');
-        $view->generate(array('property' => $property));
 
         if (!empty($_POST)) {
             // Récupérer les informations de la propriété à partir du formulaire
@@ -63,7 +61,6 @@ class PropertyCtrl {
             $superficie = $_POST['superficie'];
             $pieces = $_POST['pieces'];
             $chambres = $_POST['chambres'];
-            $photos = $_POST['photos'];
             $meuble = $_POST['meuble'];
             $piscine = $_POST['piscine'];
             $balcon = $_POST['balcon'];
@@ -73,7 +70,39 @@ class PropertyCtrl {
             $ascenseur = $_POST['ascenseur'];
             $description = $_POST['description'];
 
-            $result = $this->property->saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+            var_dump($_POST);
+
+          // Créer un tableau contenant les informations de la propriété
+            // $property = array(
+            //   'ville' => $ville,
+            //   'adresse' => $adresse,
+            //   'code_postal' => $code_postal,
+            //   'etat' => $etat,
+            //   'type' => $type,
+            //   'prix' => $prix,
+            //   'etage' => $etage,
+            //   'superficie' => $superficie,
+            //   'pieces' => $pieces,
+            //   'chambres' => $chambres,
+            //   'meuble' => $meuble,
+            //   'piscine' => $piscine,
+            //   'balcon' => $balcon,
+            //   'jardin' => $jardin,
+            //   'garage' => $garage,
+            //   'cave' => $cave,
+            //   'ascenseur' => $ascenseur,
+            //   'description' => $description
+            // );
+
+
+            $view = new View('AddProperty');
+            $view->generate($property);
+
+            $result = $this->$property->saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+
+            if($result == true){
+              echo"yes yees";
+            }
           }
         else {
             echo "<p> Une erreur est survenue</p>";
@@ -113,13 +142,11 @@ class PropertyCtrl {
     //         $ville = $_POST['ville'];
     //         $etat = $_POST['etat'];
     //         $type = $_POST['type'];
-    //         $intitule = $_POST['intitule'];
     //         $prix = $_POST['prix'];
     //         $etage = $_POST['etage'];
     //         $superficie = $_POST['superficie'];
     //         $pieces = $_POST['pieces'];
     //         $chambres = $_POST['chambres'];
-    //         $photos = $_POST['photos'];
     //         $meuble = $_POST['meuble'];
     //         $piscine = $_POST['piscine'];
     //         $balcon = $_POST['balcon'];
@@ -129,7 +156,7 @@ class PropertyCtrl {
     //         $ascenseur = $_POST['ascenseur'];
     //         $description = $_POST['description'];
 
-    //         $result = $this->property->updateProperty($adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+    //         $result = $this->property->updateProperty($adresse, $code_postal, $ville, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
 
 
     //         $property = $this->property->getProperty($idProperty);
@@ -142,10 +169,10 @@ class PropertyCtrl {
     // }
 
 
-    // // Supprimer une propriété
-    // public function deleteProperty() {
-    //     $idProperty = $_GET['id'];
+    // Supprimer une propriété
+    public function deleteProperty() {
+        $idProperty = $_GET['id'];
 
-    //     $result = $this->property->deleteProperty($idProperty);
-    // }
+        $result = $this->property->deleteProperty($idProperty);
+    }
 }

@@ -60,13 +60,36 @@ class PropertyModel extends Model {
       throw new Exception("Property introuvable");
     }
 
-  // addProperty         VOIR POUR PHOTOS
-    public function saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description){ 
-    
-      $sql= "INSERT INTO Property (adresse, code_postal, ville, etat, type, intitule, prix, etage, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description) 
-      VALUES ('".$ville."','".$adresse."', '".$code_postal."', '".$etat."', '".$type."', '".$intitule."', '".$prix."', '".$etage."', '".$superficie."', '".$pieces."', '".$chambres."', '".$photos."', '".$meuble."', '".$piscine."', '".$balcon."', '".$jardin."', '".$garage."', '".$cave."', '".$ascenseur."', '".$description."')";
+  // addProperty        
+    public function saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description){ 
+      
+      $sql = "INSERT INTO Property (ville, adresse, code_postal, etat, type, prix, etage, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description) 
+      VALUES ('$ville', '$adresse', '$code_postal', '$etat', '$type', '$prix', '$etage', '$superficie', '$pieces', '$chambres', '$meuble', '$piscine', '$balcon', '$jardin', '$garage', '$cave', '$ascenseur', '$description')";
+      $db =  executeRequest($stmt, $params = null);
 
-        $result= $this->executerRequete($sql);
+      $sql = executeRequest($sql, $params = null);
+
+      $sql->bindParam(':ville', $ville);
+      $sql->bindParam(':adresse', $adresse);
+      $sql->bindParam(':code_postal', $code_postal);
+      $sql->bindParam(':etat', $etat);
+      $sql->bindParam(':type', $type);
+      $sql->bindParam(':prix', $prix);
+      $sql->bindParam(':etage', $etage);
+      $sql->bindParam(':superficie', $superficie);
+      $sql->bindParam(':pieces', $pieces);
+      $sql->bindParam(':chambres', $chambres);
+      $sql->bindParam(':meuble', $meuble);
+      $sql->bindParam(':piscine', $piscine);
+      $sql->bindParam(':balcon', $balcon);
+      $sql->bindParam(':jardin', $jardin);
+      $sql->bindParam(':garage', $garage);
+      $sql->bindParam(':cave', $cave);
+      $sql->bindParam(':ascenseur', $ascenseur);
+      $sql->bindParam(':description', $description);
+
+      $result = $sql->execute();
+      var_dump($sql);
 
         return $result;
     }

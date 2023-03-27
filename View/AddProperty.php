@@ -21,11 +21,11 @@
                         <div>
                             <div>
                                 <input type="checkbox" name="etat" id="location" checked/>
-                                <label for="location">Location</label>
+                                <label for="location" value="1">Location</label>
                             </div>
                             <div>
                                 <input type="checkbox" name="etat" id="vente" checked/>
-                                <label for="vente">Vente</label>
+                                <label for="vente" value="1">Vente</label>
                             </div>
                         </div>
                     </div>
@@ -34,11 +34,11 @@
                         <div>
                             <div>
                                 <input type="checkbox" name="type" id="appartement" checked/>
-                                <label for="appartement">Appartement</label>
+                                <label for="appartement" value="1">Appartement</label>
                             </div>
                             <div>
                                 <input type="checkbox" name="type" id="maison" checked/>
-                                <label for="maison">Maison</label>
+                                <label for="maison" value="1">Maison</label>
                             </div>
                         </div>
                     </div>
@@ -71,33 +71,33 @@
                         <label for="autres" class='autre'>Autres</label>
                         <div class="autre_div">
                             <div>
-                                <input type="checkbox" name="meuble" id="meuble" checked/>
+                                <input type="checkbox" name="meuble" id="meuble" value="1" checked/>
                                 <label for="meuble">Meublé</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="piscine" id="piscine" checked/>
+                                <input type="checkbox" name="piscine" id="piscine" value="1" checked/>
                                 <label for="piscine">Piscine</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="balcon" id="balcon" checked/>
+                                <input type="checkbox" name="balcon" id="balcon" value="1" checked/>
                                 <label for="balcon">Balcon</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="jardin" id="jardin" checked/>
+                                <input type="checkbox" name="jardin" id="jardin" value="1" checked/>
                                 <label for="jardin">Jardin</label>
                             </div>
                         </div>
                         <div>
                             <div>
-                                <input type="checkbox" name="garage" id="garage" checked/>
+                                <input type="checkbox" name="garage" id="garage" value="1" checked/>
                                 <label for="garage">Garage</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="cave" id="cave" checked/>
+                                <input type="checkbox" name="cave" id="cave" value="1" checked/>
                                 <label for="cave">Cave</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="ascenseur" id="ascenseur" checked/>
+                                <input type="checkbox" name="ascenseur" id="ascenseur" value="1" checked/>
                                 <label for="ascenseur">Ascenseur</label>
                             </div>
                         </div>
@@ -110,5 +110,3 @@
         </form>
 </main>
     <script src="Tools/Js/form.js" defer></script>
-
-
