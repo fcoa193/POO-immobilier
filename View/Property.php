@@ -2,7 +2,7 @@
     <li>
         <button onclick=history.back()>Retour</button>
     </li>
-    <div class="diapo" data-speed="2000" data-transition="700">
+    <div class="diapo" data-speed="5000" data-transition="700">
         <div class="elements">
             <div class="element">
                 <img src="Tools/Assets/imgProperties/app1/raw4.jpg" alt="">

@@ -24,6 +24,10 @@ window.onload = () => {
   // On récupère la largeur d'une slide
   slideWidth = diapo.getBoundingClientRect().width;
 
+  window.onresize = () => {
+    slideWidth = diapo.getBoundingClientRect().width;
+  } 
+  
   // On récupère les flèches
   let next = document.querySelector("#nav-droite");
   let prev = document.querySelector("#nav-gauche");
