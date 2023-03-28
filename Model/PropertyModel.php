@@ -76,16 +76,36 @@ class PropertyModel extends Model {
   }
 
 
-  // // addProperty        
-    public function addProperty($ville){ 
-    echo $ville;
-      $sql = "INSERT INTO Property (ville) VALUES ('$ville')";
-      $result = $this->executeRequest($sql);
 
-      
+    
+  // addProperty        
+    public function saveProperty($ville
+    // , $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
+    ){ 
 
-        return $result;
+    
+      $sql = "INSERT INTO Property (ville
+      -- , adresse, code_postal, etat, type, prix, etage, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description
+      ) 
+      VALUES (`$ville`
+      -- ,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?
+      )";
+      $result = $this->executeRequest($sql
+      // , $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
+    ); 
+      var_dump($result);
+
+      return $result;
     }
+
+
+
+
+
+
+
+
+
 
   // function EditProperty($adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description){ 
  
