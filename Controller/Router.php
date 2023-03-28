@@ -37,11 +37,14 @@ class Router {
                 else if($_GET['action'] == 'AddProperty'){
                     $this->PropertyCtrl->AddProperty();
                 }
+                elseif ($_GET['action'] == 'ExecuteAddProperty') {
+                    $this->PropertyCtrl->ExecuteAddProperty();
+                }
                 else if($_GET['action'] == 'EditProperty'){
                     $this->PropertyCtrl->EditProperty();
                 }
-                elseif ($_GET['action'] == 'ExecuteAddProperty') {
-                    $this->PropertyCtrl->ExecuteAddProperty();
+                else if($_GET['action'] == 'ExecuteEditProperty'){
+                    $this->PropertyCtrl->ExecuteEditProperty();
                 }
                 else if($_GET['action'] == 'DeleteProperty'){
                     $this->PropertyCtrl->DeleteProperty();
