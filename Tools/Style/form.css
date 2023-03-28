@@ -27,7 +27,9 @@ form .form-control{
     align-items: center;   
 }
 
-form .form-control > label{
+form .form-control > label,
+form .form-control div > label
+{
         width: 100px;
        text-align: end;
        font-weight: 700;
@@ -77,6 +79,27 @@ input[type="submit"]{
 input[type="submit"]:hover{
     background: var(--hover);
 }
+
+input[type="text"], select{
+    width: 35%;
+    height: 32px;
+    min-width: 130px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    background: white;
+}
+
+input[type="text"]{
+    width: 70%;
+    padding: 10px;
+}
+
+input#codePostal{
+    width: 97%;
+    max-width: 390px;
+}
+
+
 
 /*personnalisation des inputs*/
 form input[type="checkbox"] {
@@ -137,8 +160,8 @@ input[type=range]::-moz-range-thumb {
     border-radius: 50%;
     background: var(--primary);   /* le bord */
     cursor: pointer;
-
 }
+
   input[type=range]::-ms-thumb {
     padding: 0;                                              /* largeur du bord */
     border: 1px solid var(--primary);;
@@ -146,18 +169,102 @@ input[type=range]::-moz-range-thumb {
     background: var(--primary);  
     cursor: pointer;
 }
-#autre{
-    display: flex !important;
-    flex-wrap: wrap !important;
+
+.column{
+    display: flex ;
+    flex-direction: column ;
 }
-.autre{
+
+.center-label{
     text-align: center !important;
     margin: auto !important;
     margin-bottom: 30px !important;
 }
-.autre_div{
-    margin-bottom: 30px !important;
+
+.caracteristique{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
 }
+
+.caracteristique > div{
+    margin-inline: 2.5% !important;
+    margin-bottom: 20px;
+}
+
+.form-control textarea{
+    width: 80%;
+    min-width: 80%;
+    max-width: 80%;
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+    border-radius: 25px;
+    padding: 15px;
+    border: 1px solid var(--border);
+}
+
+
 .mid{
     margin: auto;
 }
+
+.cp-introuvable{
+    display: none;
+    background: var(--secondary);
+    color: var(--black);
+    text-align: center;
+    border: 1px solid var(--primary);
+    margin: 0 5px;
+    border-radius: 5px;
+}
+
+ /* on personnalise le label comme on veut */
+ /* .photo-btn{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+ } */
+/* .label-file {
+    cursor: pointer;
+    color: white;
+    font-weight: bold;
+    background: var(--primary);
+    padding: 5px;
+    text-align: center !important;
+    width: 49%;
+    border-radius: 10px;
+} */
+
+ .label-file:hover {
+    background: var(--hover);
+}
+
+/* et on masque le input */
+
+/* .photo-btn .valide-photo{
+    width: 49%;
+    cursor: pointer;
+    font-weight: bold;
+    border: var(--border) 1px solid;
+    text-align: center !important;
+    width: 49%;
+    border-radius: 10px;
+    background: var(--secondary);
+    transition: 300ms;
+}
+
+.photo-btn .valide-photo:hover{
+    background: var(--border);
+}
+
+.photo-btn .photos{
+    display: flex;
+} */
+
+
+/* @media (max-width : 650px){
+    .label-file {
+        width: 100% !important;
+    }
+} */

@@ -36,7 +36,10 @@
                         <span class="output"><span class="value"></span></span>
                     </div>
                     <input type="submit" value="Modifier">
-        </form>
+            </form>
+        <script src="Tools/Js/form.js" defer></script>
+        <script src="Tools/Js/cities.js" defer></script>
     </main>
-    <script src="Tools/Js/form.js" defer></script>
+
+
 

@@ -31,27 +31,28 @@ class Router {
                 else if($_GET['action'] == 'Login'){
                     $this->LoginCtrl->Login();
                 }
+                else if($_GET['action'] == 'Accueil'){
+                    $this->LoginCtrl->ExecuteLogin();
+                }
                 else if($_GET['action'] == 'AddProperty'){
                     $this->PropertyCtrl->AddProperty();
-                }
-                else if($_GET['action'] == 'Logout'){
-                    $this->LoginCtrl->Logout();
                 }
                 else if($_GET['action'] == 'EditProperty'){
                     $this->PropertyCtrl->EditProperty();
                 }
+                elseif ($_GET['action'] == 'ExecuteAddProperty') {
+                    $this->PropertyCtrl->ExecuteAddProperty();
+                }
                 else if($_GET['action'] == 'DeleteProperty'){
                     $this->PropertyCtrl->DeleteProperty();
                 }
-                else if($_GET['action'] == 'Accueil'){
-                    $this->AccueilCtrl->Accueil();
+                else if($_GET['action'] == 'Logout'){
+                    $this->LoginCtrl->Logout();
                 }
-
                 else
                     throw new Exception("Action non valide");
                 }          
             else {
-                
                 $this->AccueilCtrl->Accueil();
             }
         }

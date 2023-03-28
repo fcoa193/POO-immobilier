@@ -86,12 +86,12 @@
                     </div>
                     <div class="form-control">
                         <label for="parts">Pièces min</label>
-                        <input type="range" name="parts" value='<?= $_POST['parts']?>' min="1" max="7">
+                        <input type="range" name="pieces" value='<?= $_POST['pieces']?>' min="1" max="7">
                         <span class="output"><span class="value"></span></span>
                     </div>
                     <div class="form-control">
                         <label for="rooms">Chambres min</label>
-                        <input type="range" name="rooms" min="1" value="<?= $_POST['rooms']?>">
+                        <input type="range" name="chambres" min="1" value="<?= $_POST['chambres']?>">
                         <span class="output"><span class="value"></span></span>
                     </div>
                     <button id="close-filter">Sauvegarder</button>
@@ -110,7 +110,7 @@
       }
       foreach ($data as $property) {?>
     <article class="appartment-card">
-      <a href="index.php?action=Property&id=<?= $property['idProperty']?>">
+      <a href="index.php?action=Property&id=<?=$property['idProperty']?>">
         <div class="card-shadow"></div>
         <div class="title-price">
             <h2><?=$property['intitule']?></h2>
@@ -120,17 +120,19 @@
       </a>
       <?php if(isset($_SESSION['id'])){?>
       <div class="btn-group">
-        <a id="delete-btn" href="index.php?action=DeleteProperty"><i class="fa-solid fa-trash"></i></a>
-        <a id="edit-btn" href="index.php?action=EditProperty"><i class="fa-solid fa-pen-to-square"></i></a>
+        <a id="delete-btn" href="index.php?action=DeleteProperty&id=<?= $property['idProperty']?>"><i class="fa-solid fa-trash"></i></a>
+        <a id="edit-btn" href="index.php?action=EditProperty&id=<?= $property['idProperty']?>"><i class="fa-solid fa-pen-to-square"></i></a>
       </div>
-      <?php }}?>
-    </article>
-    
-
+   
+      <?php } ?>
+       </article>
+       <?php }?>
+      
     </section>
     </main>
 
     <script src="Tools/Js/form.js" defer></script>
     <script src="Tools/Js/filter.js" defer></script>
     <script src="Tools/Js/searchSuggestion.js" defer></script>
+    <script src="Tools/Js/updatePrice.js" defer></script>
 

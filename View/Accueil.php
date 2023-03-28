@@ -51,12 +51,12 @@
                     </div>
                     <div class="form-control">
                         <label for="parts">Pièces min</label>
-                        <input type="range" name="parts" value='1' min="1" max="7">
+                        <input type="range" name="pieces" value='1' min="1" max="7">
                         <span class="output"><span class="value"></span></span>
                     </div>
                     <div class="form-control">
                         <label for="rooms">Chambres min</label>
-                        <input type="range" name="rooms" min="1" >
+                        <input type="range" name="chambres" min="1" >
                         <span class="output"><span class="value"></span></span>
                     </div>
                     <button id="close-filter">Sauvegarder</button>
@@ -64,9 +64,7 @@
             </div>
         </form>
         </section>
-       
-
-        <section class="section1">
+         <section class="section1">
             <div class='div_accueil' id="div1">
                 <img src="Tools/Assets/agent-immobilier.png" class="small_pic" id="pic_immo" alt="agent immobilier qui montre le vide">
                 <p class="div_p"><span class="span">+2000</span> de nos agents immobiliers pour vous accompagner dans vos projets</p>

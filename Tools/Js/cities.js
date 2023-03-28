@@ -1,4 +1,4 @@
-const cpInput = document.querySelector("input[name='cp']")
+const cpInput = document.querySelector("input[name='code_postal']")
 const villeInput = document.querySelector("input[name='ville']")
 
 cpInput.oninput = () => {
@@ -11,18 +11,18 @@ cpInput.oninput = () => {
     method : "get"
     }).then((response) => response.json()).then((data)=> {
         if(data.length == 0){
-            document.querySelector('.cp-introuvable').innerHTML = "Aucune ville ne correspond à ce code postale"
+            document.querySelector('.cp-introuvable').innerHTML = "N'existe pas"
+            document.querySelector('.cp-introuvable').style.display = 'inline'; 
             villeInput.value = ''
         } else {
             document.querySelector('.cp-introuvable').innerHTML = ""
             villeInput.value = data[0].nom
+            document.querySelector('.cp-introuvable').style.display = 'none'; 
+
         }
     })
 }
 
-//-----------------------------------------------
-// -----------SEARCH INPUT SUGGESTION------------
-//-----------------------------------------------
 
 
 

@@ -14,7 +14,7 @@ searchInput.oninput = () => {
             suggestionContainer.style.display = "flex"
             suggestionContainer.innerHTML = "";
             data.forEach(city => {
-                suggestionContainer.innerHTML += `<span class='suggestion'>${city.nom}</span>`
+                suggestionContainer.innerHTML += `<span class='suggestion' onclick=replace(this)>${city.nom}</span>`
             });
 
             let i = 0;

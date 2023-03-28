@@ -36,7 +36,6 @@
             else{  
             }
             ?>
-
                 <input class="login-btn" type="submit" value="Connexion" title="Se connecter" />
                 <p style="color:red" id="erreur"></p>
             </form>

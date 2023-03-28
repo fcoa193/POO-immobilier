@@ -13,7 +13,6 @@ class PropertyCtrl {
     // }
 
   private $property;
-
   public function __construct() {
     $this->property = new PropertyModel();
     // $this->pics = new PicsModel();
@@ -46,11 +45,36 @@ class PropertyCtrl {
     // }
 
     // créer une propriété
-    
+    public function ExecuteAddProperty()
+    {
+        $ville = 'Tout est ok !';
+        // $adresse = $_POST['adresse'];
+        // $code_postal = $_POST['code_postal'];
+        // $etat = $_POST['etat'];
+        // $type = $_POST['type'];
+        // $prix = $_POST['prix'];
+        // $etage = $_POST['etage'];
+        // $superficie = $_POST['superficie'];
+        // $pieces = $_POST['pieces'];
+        // $chambres = $_POST['chambres'];
+        // $meuble = $_POST['meuble'];
+        // $piscine = $_POST['piscine'];
+        // $balcon = $_POST['balcon'];
+        // $jardin = $_POST['jardin'];
+        // $garage = $_POST['garage'];
+        // $cave = $_POST['cave'];
+        // $ascenseur = $_POST['ascenseur'];
+        // $description = $_POST['description'];
+        $result = $this->property->addProperty($ville);
+
+        $view = new View('Resultat');
+        $view->generate();
+    }
+
     public function AddProperty() {
       $view = new View('AddProperty');
       $view->generate($property);
-        if (!empty($_POST)) {
+        // if (!empty($_POST)) {
         //     // Récupérer les informations de la propriété à partir du formulaire
         //     $ville = $_POST['ville'];
         //     $adresse = $_POST['adresse'];
@@ -96,16 +120,16 @@ class PropertyCtrl {
         //     );
 
 
-            $view = new View('AddProperty');
-            $view->generate($property);
+            // $view = new View('AddProperty');
+            // $view->generate($property);
 
             // $result = $this->$property->saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
 
             // return $result;
-          }
-        else {
-            echo "<p> Une erreur est survenue</p>";
-        }
+        //   }
+        // else {
+        //     echo "<p> Une erreur est survenue</p>";
+        // }
     }
 
 
@@ -171,10 +195,15 @@ class PropertyCtrl {
 
     // Supprimer une propriété
     public function DeleteProperty() {
-      echo 'delete !';
-        // $idProperty = $_GET['id'];
+      $idProperty = $_GET['id'];
+      $result = $this->property->deleteProperty($idProperty);
+      
+      if($result == true || $result == 1){
+        $properties = $this->property->getPropertiesBack();
+        $view = new View("Resultat");
+        $view->generate(array('property' => $properties));
+      }
 
-        // $result = $this->property->deleteProperty($idProperty);
-    }
-    
+
+  }
 }
