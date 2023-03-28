@@ -76,18 +76,46 @@ class PropertyModel extends Model {
   }
 
 
-  // // addProperty        
-    public function addProperty($ville){ 
-    echo $ville;
-      $sql = "INSERT INTO Property (ville) VALUES ('$ville')";
-      $result = $this->executeRequest($sql);
 
+    
+  // addProperty        
+    public function saveProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
+    // 
+    ){ 
       
+      $sql = "INSERT INTO Property (ville,adresse, code_postal, etat, type, intitule, prix, etage, superficie, pieces, chambres, photos, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description
+      --  
+      ) 
+      VALUES ('$ville',  '$adresse', '$code_postal', '$etat', '$type', '$intitule', '$prix', '$etage', '$superficie', '$pieces', '$chambres', '$photos', '$meuble', '$piscine', '$balcon', '$jardin', '$garage', '$cave', '$ascenseur', '$description'
+      -- 
+      )";
+      $result = $this->executeRequest($sql); 
 
-        return $result;
+      return $result;
     }
 
-  // function EditProperty($adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description){ 
+
+
+
+
+
+
+    // public function EditProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
+    // // 
+    // ){ 
+      
+    //   $sql = "UPDATE Property SET (ville = '$ville',adresse = '$adresse', code_postal = '$code_postal', etat = '$etat', type = '$type', intitule = '$intitule', prix = '$prix', etage = '$etage', superficie = '$superficie', pieces = '$pieces', chambres = '$chambres', photos = '$photos', meuble = '$meuble', piscine = '$piscine', balcon = '$balcon', jardin = '$jardin', garage = '$garage', cave = '$cave', ascenseur = '$ascenseur', description = '$description'
+    //   ) 
+    //   VALUES ('$ville',  '$adresse', '$code_postal', '$etat', '$type', '$intitule', '$prix', '$etage', '$superficie', '$pieces', '$chambres', '$photos', '$meuble', '$piscine', '$balcon', '$jardin', '$garage', '$cave', '$ascenseur', '$description'
+    //   -- 
+    //   )";
+    //   $result = $this->executeRequest($sql); 
+
+    //   return $result;
+    // }
+
+
+  // 
  
   //   $sql= "UPDATE Property SET adresse = '".$adresse."', code_postal = '".$code_postal."', ville = '".$ville.", etat = '".$etat."', type = '".$type."', intitule = '".$intitule.", prix = ".$prix.", etage = '".$etage.", superficie = ".$superficie.", pieces= ".$pieces.", chambres = ".$chambres.", photos= ".$photos.", meuble= ".$meuble.", piscine = ".$piscine.", balcon= ".$balcon.", jardin = ".$jardin.", garage= ".$garage.", cave = ".$cave.", ascenseur = ".$ascenseur.", description= ".$description."
   //    WHERE idProperty = ".$idProperty;

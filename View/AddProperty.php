@@ -1,5 +1,5 @@
 <main>
-        <form method="POST" action="index.php?action=AddProperty">
+        <form method="POST" action="index.php?action=ExecuteAddProperty">
                     <h2><i class="fa-solid fa-sliders"></i>Filtrer</h2>
                     <div class="form-control etat">
                         <label for="etat"></label>
@@ -80,31 +80,31 @@
                         <label for="autres" class='center-label'>Autres</label>
                         <div class="caracteristique">
                             <div>
-                                <input type="checkbox" name="meuble" id="meuble" value="1" />
+                                <input type="checkbox" name="meuble" id="meuble"  />
                                 <label for="meuble">Meublé</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="piscine" id="piscine" value="1"  />
+                                <input type="checkbox" name="piscine" id="piscine"  />
                                 <label for="piscine">Piscine</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="balcon" id="balcon" value="1"  />
+                                <input type="checkbox" name="balcon" id="balcon"  />
                                 <label for="balcon">Balcon</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="jardin" id="jardin" value="1" />
+                                <input type="checkbox" name="jardin" id="jardin"  />
                                 <label for="jardin">Jardin</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="garage" id="garage" value="1" />
+                                <input type="checkbox" name="garage" id="garage"  />
                                 <label for="garage">Garage</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="cave" id="cave" value="1" />
+                                <input type="checkbox" name="cave" id="cave"  />
                                 <label for="cave">Cave</label>
                             </div>
                             <div>
-                                <input type="checkbox" name="ascenseur" id="ascenseur" value="1" />
+                                <input type="checkbox" name="ascenseur" id="ascenseur"  />
                                 <label for="ascenseur">Ascenseur</label>
                             </div>
                         </div>
