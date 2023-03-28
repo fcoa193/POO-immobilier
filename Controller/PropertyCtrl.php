@@ -52,45 +52,65 @@ class PropertyCtrl {
           $code_postal = $_POST['code_postal'];
           $etat = $_POST['etat'];
           $type = $_POST['type'];
+          $intitule = $_POST['intitule'];
           $prix = $_POST['prix'];
           $etage = $_POST['etage'];
           $superficie = $_POST['superficie'];
           $pieces = $_POST['pieces'];
           $chambres = $_POST['chambres'];
-          $meuble = $_POST['meuble'];
-          $piscine = $_POST['piscine'];
-          $balcon = $_POST['balcon'];
-          $jardin = $_POST['jardin'];
-          $garage = $_POST['garage'];
-          $cave = $_POST['cave'];
-          $ascenseur = $_POST['ascenseur'];
-          $description = $_POST['description'];
-          echo $ville;
-          var_dump($_POST);
-
-        // // Créer un tableau contenant les informations de la propriété
-        //   $property = array(
-        //     'ville' => $ville
-        //     // ,'adresse' => $adresse,
-        //     // 'code_postal' => $code_postal,
-        //     // 'etat' => $etat,
-        //     // 'type' => $type,
-        //     // 'prix' => $prix,
-        //     // 'etage' => $etage,
-        //     // 'superficie' => $superficie,
-        //     // 'pieces' => $pieces,
-        //     // 'chambres' => $chambres,
-        //     // 'meuble' => $meuble,
-        //     // 'piscine' => $piscine,
-        //     // 'balcon' => $balcon,
-        //     // 'jardin' => $jardin,
-        //     // 'garage' => $garage,
-        //     // 'cave' => $cave,
-        //     // 'ascenseur' => $ascenseur,
-        //     // 'description' => $description
-        //   );
+          $photos = $_POST['photos'];
           
-        $result = $this->property->saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
+          if($_POST['meuble'] == "on"){
+            $meuble = 1;
+          }else{
+            $meuble = 0;
+          }
+
+          if($_POST['piscine'] == "on"){
+            $piscine = 1;
+          }else{
+            $piscine = 0;
+          }
+          
+          if($_POST['balcon'] == "on"){
+            $balcon = 1;
+          }else{
+            $balcon = 0;
+          }
+
+          if($_POST['jardin'] == "on"){
+            $jardin = 1;
+          }else{
+            $jardin = 0;
+          }
+          if($_POST['garage'] == "on"){
+            $garage = 1;
+          }else{
+            $garage = 0;
+          }
+          if($_POST['cave'] == "on"){
+            $cave = 1;
+          }else{
+            $cave = 0;
+          }
+          if($_POST['ascenseur'] == "on"){
+            $ascenseur = 1;
+          }else{
+            $ascenseur = 0;
+          }
+          // $meuble = $_POST['meuble'];
+          // $piscine = $_POST['piscine'];
+          // $balcon = $_POST['balcon'];
+          // $jardin = $_POST['jardin'];
+          // $garage = $_POST['garage'];
+          // $cave = $_POST['cave'];
+          // $ascenseur = $_POST['ascenseur'];
+          $description = $_POST['description'];
+
+          var_dump($_POST);
+          
+        $result = $this->property->saveProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
+        // 
       );
 
           $view = new View('Resultat');

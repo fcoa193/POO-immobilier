@@ -79,12 +79,17 @@ class PropertyModel extends Model {
 
     
   // addProperty        
-    public function saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description){ 
+    public function saveProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
+    // 
+    ){ 
       
-      $sql = "INSERT INTO Property (ville, adresse, code_postal, etat, type, prix, etage, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description) 
-      VALUES ('$ville',  '$adresse', '$code_postal', '$etat', '$type', '$prix', '$etage', '$superficie', '$pieces', '$chambres', '$meuble', '$piscine', '$balcon', '$jardin', '$garage', '$cave', '$ascenseur', '$description')";
+      $sql = "INSERT INTO Property (ville,adresse, code_postal, etat, type, intitule, prix, etage, superficie, pieces, chambres, photos, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description
+      --  
+      ) 
+      VALUES ('$ville',  '$adresse', '$code_postal', '$etat', '$type', '$intitule', '$prix', '$etage', '$superficie', '$pieces', '$chambres', '$photos', '$meuble', '$piscine', '$balcon', '$jardin', '$garage', '$cave', '$ascenseur', '$description'
+      -- 
+      )";
       $result = $this->executeRequest($sql); 
-      var_dump($result);
 
       return $result;
     }
