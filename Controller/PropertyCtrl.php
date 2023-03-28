@@ -129,9 +129,9 @@ class PropertyCtrl {
 
 
     public function ExecuteEditProperty(){
-        $idProperty = $_GET['id'];
         if (!empty($_POST)) {
     // Récupérer les informations de l'employe à partir du formulaire
+            // $idProperty = $_GET['id'];
             $adresse = $_POST['adresse'];
             $code_postal = $_POST['code_postal'];
             $ville = $_POST['ville'];
@@ -179,7 +179,12 @@ class PropertyCtrl {
             }
             $description = $_POST['description'];
 
-            $result = $this->property->EditProperty($adresse, $code_postal, $ville, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+
+            var_dump($_POST);
+
+            $result = $this->property->updateProperty(
+              // $idProperty,
+              $adresse, $code_postal, $ville, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
 
             $view = new View('Resultat');
             $view->generate();

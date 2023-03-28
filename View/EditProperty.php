@@ -1,5 +1,5 @@
 <main>
-        <form method="POST" action="index.php?action=ExecuteAddProperty">
+        <form method="POST" action="index.php?action=ExecuteEditProperty">
                     <h2><i class="fa-solid fa-sliders"></i>Filtrer</h2>
                     <div class="form-control etat">
                         <label for="etat"></label>
