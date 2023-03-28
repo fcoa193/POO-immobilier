@@ -48,23 +48,23 @@ class PropertyCtrl {
         if (!empty($_POST)) {
           // Récupérer les informations de la propriété à partir du formulaire
           $ville = $_POST['ville'];
-          // $adresse = $_POST['adresse'];
-          // $code_postal = $_POST['code_postal'];
-          // $etat = $_POST['etat'];
-          // $type = $_POST['type'];
-          // $prix = $_POST['prix'];
-          // $etage = $_POST['etage'];
-          // $superficie = $_POST['superficie'];
-          // $pieces = $_POST['pieces'];
-          // $chambres = $_POST['chambres'];
-          // $meuble = $_POST['meuble'];
-          // $piscine = $_POST['piscine'];
-          // $balcon = $_POST['balcon'];
-          // $jardin = $_POST['jardin'];
-          // $garage = $_POST['garage'];
-          // $cave = $_POST['cave'];
-          // $ascenseur = $_POST['ascenseur'];
-          // $description = $_POST['description'];
+          $adresse = $_POST['adresse'];
+          $code_postal = $_POST['code_postal'];
+          $etat = $_POST['etat'];
+          $type = $_POST['type'];
+          $prix = $_POST['prix'];
+          $etage = $_POST['etage'];
+          $superficie = $_POST['superficie'];
+          $pieces = $_POST['pieces'];
+          $chambres = $_POST['chambres'];
+          $meuble = $_POST['meuble'];
+          $piscine = $_POST['piscine'];
+          $balcon = $_POST['balcon'];
+          $jardin = $_POST['jardin'];
+          $garage = $_POST['garage'];
+          $cave = $_POST['cave'];
+          $ascenseur = $_POST['ascenseur'];
+          $description = $_POST['description'];
           echo $ville;
           var_dump($_POST);
 
@@ -90,8 +90,7 @@ class PropertyCtrl {
         //     // 'description' => $description
         //   );
           
-        $result = $this->property->saveProperty($ville
-        // , $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
+        $result = $this->property->saveProperty($ville, $adresse, $code_postal, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
       );
 
           $view = new View('Resultat');
