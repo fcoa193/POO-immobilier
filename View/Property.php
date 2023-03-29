@@ -3,23 +3,22 @@
         <button onclick=history.back()>Retour</button>
     </li>
     <div class="diapo" data-speed="5000" data-transition="700">
-        <div class="elements">
+        
+   
+    <div class="elements">
+        <?php 
+         foreach ($data['pics'] as $pic){
+        ?>
+     
             <div class="element">
-                <img src="Tools/Assets/imgProperties/app1/raw4.jpg" alt="">
+                <img src="Tools/Uploads/<?=$pic['photo']?>" alt="">
 
             </div>
-            <div class="element">
-                <img src="Tools/Assets/imgProperties/app1/raw3.jpg" alt="">
-
-            </div>
-            <div class="element">
-                <img src="Tools/Assets/imgProperties/app1/125.jpg" alt="">
-
-            </div>
-            <div class="element">
-                <img src="Tools/Assets/imgProperties/app1/raw2.jpg" alt="">
-
-            </div>
+        <?php 
+        }
+        ?>
+            
+            
         </div>
         <!-- Flèches -->
         <i id="nav-gauche" class="fa-solid fa-chevron-left"></i>
@@ -34,10 +33,10 @@
     <div class="title">
         <div class="top">
             <h2><?= $data['intitule']?></h2>
-            <span class="prix"><?= $data['prix']?>€</span>
+            <span class="prix"><?= $data['property']['prix']?>€</span>
         </div>
-        <p class='address'><?= $data['adresse']?></p>
-        <p><?= $data['ville']?>, <?= $data['code_postal']?></p>
+        <p class='address'><?= $data['property']['adresse']?></p>
+        <p><?= $data['property']['ville']?>, <?= $data['property']['code_postal']?></p>
     </div>
 
 
@@ -48,7 +47,7 @@
                     <h4>Description</h4>
                 </div>
                 <p>
-                <?= $data['description']?>
+                <?= $data['property']['description']?>
                 </p>
             </section>
         
@@ -59,37 +58,37 @@
                 <h4>Autres spécifités</h4>
             </div>
             <div class="item">
-                <?php if($data['meuble'] == 1){?>
+                <?php if($data['property']['meuble'] == 1){?>
                     <div class="items item-1">
                         <li>• Meublé</li>
                     </div>
                 <?php }?>
-                <?php if($data['piscine'] == 1){?>
+                <?php if($data['property']['piscine'] == 1){?>
                     <div class="items item-1">
                         <li>• Piscine</li>
                     </div>
                 <?php }?>
-                <?php if($data['balcon'] == 1){?>
+                <?php if($data['property']['balcon'] == 1){?>
                     <div class="items item-1">
                         <li>• Balcon</li>
                     </div>
                 <?php }?>
-                <?php if($data['jardin'] == 1){?>
+                <?php if($data['property']['jardin'] == 1){?>
                     <div class="items item-1">
                         <li>• Jardin</li>
                     </div>
                 <?php }?>
-                <?php if($data['garage'] == 1){?>
+                <?php if($data['property']['garage'] == 1){?>
                     <div class="items item-1">
                         <li>• Garage</li>
                     </div>
                 <?php }?>
-                <?php if($data['ascenseur'] == 1){?>
+                <?php if($data['property']['ascenseur'] == 1){?>
                     <div class="items item-1">
                         <li>• Ascenseur</li>
                     </div>
                 <?php }?>
-                <?php if($data['cave'] == 1){?>
+                <?php if($data['property']['cave'] == 1){?>
                     <div class="items item-1">
                         <li>• Cave</li>
                     </div>
@@ -104,18 +103,18 @@
                 <div class="icon">
                     <div class="flex">
                         <div class="icons icon-1"><i class="fa-sharp fa-solid fa-stairs"></i><br>
-                            <span>2</span>
+                            <span><?=$data['property']['etage']?></span>
                         </div>
                         <div class="icons icon-2"> <i class="fa-solid fa-ruler"></i><br>
-                            <span><?= $data['superficie']?>m²</span>
+                            <span><?= $data['property']['superficie']?>m²</span>
                         </div>
                     </div>
                     <div class="flex">
                     <div class="icons icon-4"> <i class="fa-solid fa-house"></i><br>
-                            <span><?=$data['pieces']?></span>
+                            <span><?=$data['property']['pieces']?></span>
                         </div>
                         <div class="icons icon-3"> <i class="fa-solid fa-bed"></i><br>
-                            <span><?=$data['chambres']?></span>
+                            <span><?=$data['property']['chambres']?></span>
                         </div>
                     </div>
                 </div>

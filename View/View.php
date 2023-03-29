@@ -48,7 +48,7 @@ switch ($action) {
 public function generate($data = null) {
   session_start();
   // Génération de la partie spécifique de la vue
-  $content = $this->generateFile($this->file, $data["property"]);
+  $content = $this->generateFile($this->file, $data);
 
   // Génération du gabarit commun utilisant la partie spécifique
   $view = $this->generateFile('View/Template.php',

@@ -236,10 +236,14 @@ input[type=range]::-moz-range-thumb {
     border-radius: 10px;
 } */
 
- .label-file:hover {
-    background: var(--hover);
+
+.form-control#file{
+    justify-content: start;
 }
 
+input[type="file"]{
+    margin-left: 20px !important;
+}
 /* et on masque le input */
 
 /* .photo-btn .valide-photo{

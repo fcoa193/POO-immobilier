@@ -1,4 +1,4 @@
-<?php ob_start();?>
+<?php ob_start();?> 
 <div id="loader">
     <div id="dot1"></div>
     <div id="dot2"></div>
@@ -102,13 +102,13 @@
 
     <section class="real-estate-ad">
       <?php
-      if($data == Null){
+      if($data['property'] == Null){
         echo '<div class="no-result"><p>Aucuns biens ne correponds à votre recherche.</p>
         <p>Veuillez élargir vos critères de recherches.</p></div>';
       } else{
 
       }
-      foreach ($data as $property) {?>
+      foreach ($data['property'] as $property) {?>
     <article class="appartment-card">
       <a href="index.php?action=Property&id=<?=$property['idProperty']?>">
         <div class="card-shadow"></div>
@@ -116,8 +116,26 @@
             <h2><?=$property['intitule']?></h2>
             <span><?=$property['prix']?>€</span>
         </div>
-        <img src='https://prod-saint-gobain-fr.content.saint-gobain.io/sites/saint-gobain.fr/files/2020-10/moderniser-appartement-parquet-peinture-la-maison-saint-goabin.jpg'  />
+       
+        <?php  $thereIsPhoto = [];
+        foreach ($data['pics'] as $pic){
+            
+        if( $property['idProperty'] == $pic['Property_idProperty'] ){   
+            if(in_array($pic['Property_idProperty'],$thereIsPhoto) == 0){
+        ?>
+           
+        <img src='Tools/Uploads/<?=$pic['photo']?>' />
+        
+        
+        <?php 
+          $thereIsPhoto [] = $pic['Property_idProperty'];
+    }    
+   }else{?>
+
+
+        <?php }}?>
       </a>
+    
       <?php if(isset($_SESSION['id'])){?>
       <div class="btn-group">
         <a id="delete-btn" href="index.php?action=DeleteProperty&id=<?= $property['idProperty']?>"><i class="fa-solid fa-trash"></i></a>

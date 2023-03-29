@@ -12,14 +12,21 @@ public function savePics($photo, $id) {
   }
 
 
-// public function setPic($photo){ 
+public function getPics(){ 
    
-//     $sql= "INSERT INTO image (photo) 
-//     VALUES ('".$photo."')";
-//     $result= $this->executerRequete($sql);
+    $sql= "SELECT * FROM photos";
+    $result= $this->executeRequest($sql);
+    $result =$result->fetchAll();
+    return $result;
+  }
 
-//     return $result;
-//   }
+  public function getPicsProperty($idProperty){ 
+   
+    $sql= "SELECT * FROM photos where Property_idProperty = $idProperty";
+    $result= $this->executeRequest($sql);
+    $result = $result->fetchAll();
+    return $result;
+  }
 
 // public function deletePhoto(){ 
 //     $sql = "DELETE FROM image WHERE id = ".$idphotos;

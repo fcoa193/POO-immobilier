@@ -328,6 +328,12 @@ section.real-estate-ad h2 {
     margin-left: 5px;
   }
 
+  section.real-estate-ad article > a {
+    width: 100%;
+    height: 100%;
+    display: block;
+  
+  }
   section.real-estate-ad img {
     color: white;
     font-size: 20px;
@@ -383,6 +389,7 @@ section.real-estate-ad .btn-group #delete-btn:hover{
 section.real-estate-ad article:hover .btn-group{
     opacity: 1;    
 }
+
     
 /*Responsive*/
 @media (min-width : 768px){

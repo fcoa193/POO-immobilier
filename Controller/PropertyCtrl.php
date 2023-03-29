@@ -19,20 +19,21 @@ class PropertyCtrl {
   public function Properties() {
 
     $properties = $this->property->getProperties();
-    // $pics = $this->pics->getPics();
+    $pics = $this->pics->getPics();
     $view = new View("Resultat");
-    $view->generate(array('property' => $properties 
-    // 'pics' => $pics
+    $view->generate(array('property' => $properties, 
+    'pics' => $pics
   ));  
+  
   }
   
   public function Property() {
     $idProperty = $_GET['id'];
     $property = $this->property->getProperty($idProperty);
-    // $pics = $this->pics->getPics();
+    $pics = $this->pics->getPicsProperty($idProperty);
     $view = new View("Property");
     $view->generate( 
-      array('property' => $property)
+      array('property' => $property, 'pics' => $pics)
   );
 }
 
@@ -45,6 +46,8 @@ class PropertyCtrl {
       public function ExecuteAddProperty(){
         if (!empty($_POST)) {
           // Récupérer les informations de la propriété à partir du formulaire
+          
+          
           $ville = $_POST['ville'];
           $adresse = $_POST['adresse'];
           $code_postal = $_POST['code_postal'];
@@ -58,6 +61,9 @@ class PropertyCtrl {
           $chambres = $_POST['chambres'];
           $photo1 = $_POST['photo1'];
           
+          if ($ville != NULL || $ville != "" ) {
+         
+
           if($_POST['meuble'] == "on"){
             $meuble = 1;
           }else{
@@ -96,7 +102,7 @@ class PropertyCtrl {
           }else{
             $ascenseur = 0;
           }
-          var_dump($_FILES); 
+          // var_dump($_FILES); 
         // var_dump($_POST);    
         $description = $_POST['description'];
 
@@ -110,39 +116,36 @@ class PropertyCtrl {
           if(!is_dir($targetDir)) {
             mkdir($targetDir, 0777, true);
           }
-
-          $fileName = $_FILES["photo1"]["name"];
-          $fileExtension = strrchr($file_name, ".");
-          $fileTmpName = $_FILES['fichier']['tmp_name'];
-          $fileDestination = "Tools/Uploads/" . $fileName;
-          move_uploaded_file($_FILES['photo1']['tmp_name'],"Tools/Uploads/" . $fileName);
-          if(move_uploaded_file($fileTmpName, $fileDestination)) {
-            echo 'success !';
-            $data = $this->property->getIdProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
-            $idProperty = $data['idProperty'];
-            $result = $this->pics->savePics($fileName, $idProperty);
-          } else{
-            echo 'fail';
-          }
-         
-
-
-         
-
-         
           
-  
-
-          if($result == true || $result == 1){
-            $properties = $this->property->getPropertiesBack();
-            $view = new View("Resultat");
-            $view->generate(array('property' => $properties));
+          for ($i=1; $i <5 ; $i++) { 
+            $fileName = $_FILES["photo$i"]["name"];
+            $fileTmpName = $_FILES["photo$i"]['tmp_name'];
+            $fileDestination = "Tools/Uploads/" . $fileName;
+          
+            if(move_uploaded_file($fileTmpName, $fileDestination)) {
+              $data = $this->property->getIdProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+              $idProperty = $data['idProperty'];
+              $result = $this->pics->savePics($fileName, $idProperty);
+            } else{
+             
+            }
           }
+          
+            $properties = $this->property->getPropertiesBack();
+            $pics = $this->pics->getPics();
+            $view = new View("Resultat");
+
+
+            $view->generate(array('property' => $properties, 
+              'pics' => $pics
+            ));  
+          
         } 
       }
     else {
       echo "<p> Une erreur est survenue</p>";
     }
+  }
   }
 
     // créer une propriété

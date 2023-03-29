@@ -1,5 +1,5 @@
 <main>
-        <form method="POST" action="index.php?action=ExecuteAddProperty" enctype="multipart/form-data">
+        <form method="POST" action="index.php?action=ExecuteAddProperty" enctype="multipart/form-data" >
                     <h2><i class="fa-solid fa-sliders"></i>Filtrer</h2>
                     <div class="form-control etat">
                         <label for="etat"></label>
@@ -69,12 +69,20 @@
                         <span class="output"><span class="value"></span></span>
                     </div>
                     <div class="form-control" id="file">
-                        <label for="photo">Photos</label>
-                        <div class="photo-btn">
-                            <input type="file" name="photo1" class='photo'>
-                            <div class="photos-list">
-                            </div>
-                        </div>
+                        <label for="photo">Photo 1</label>                      
+                        <input type="file" name="photo1" class='photo' value='image.png' multiple>  
+                    </div>
+                    <div class="form-control" id="file">
+                        <label for="photo">Photo 2</label>                      
+                        <input type="file" name="photo2" class='photo' multiple>  
+                    </div>
+                    <div class="form-control" id="file">
+                        <label for="photo">Photo 3</label>                      
+                        <input type="file" name="photo3" class='photo' multiple>  
+                    </div>
+                    <div class="form-control" id="file">
+                        <label for="photo">Photo 4</label>                      
+                        <input type="file" name="photo4" class='photo' multiple>  
                     </div>
                     <div class="form-control column">
                         <label for="autres" class='center-label'>Autres</label>
