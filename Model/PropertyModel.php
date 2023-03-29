@@ -97,11 +97,11 @@ class PropertyModel extends Model {
 
 
     public function updateProperty(
-      // $idProperty,
+      $idProperty,
       $ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description)
     { 
       $sql = "UPDATE Property SET ville = '$ville', adresse = '$adresse', code_postal = '$code_postal', etat = '$etat', type = '$type', intitule = '$intitule', prix = '$prix', etage = '$etage', superficie = '$superficie', pieces = '$pieces', chambres = '$chambres', photos = '$photos', meuble = '$meuble', piscine = '$piscine', balcon = '$balcon', jardin = '$jardin', garage = '$garage', cave = '$cave', ascenseur = '$ascenseur', description = '$description'
-      -- WHERE id == '$idProperty'
+       WHERE id == '$idProperty'
       )";
 
       $result = $this->executeRequest($sql);
