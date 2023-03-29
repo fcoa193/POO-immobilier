@@ -1,23 +1,15 @@
 <?php
 
-// class image extends Model {
+require_once 'Model/Model.php';
+class PicsModel extends Model {
 
-// protected function executeRequest($sql, $params = null) {
-//     if ($params == null) {
-//         $resultat = $this->getBdd()->query($sql);    // exécution directe
-//     }
-//     else {
-//         $resultat = $this->getBdd()->prepare($sql)->execute($params);  // requête préparée
-//     }
-//     return $resultat;
-// }
-
-
-// public function getPics() {
-//     $sql = 'SELECT * FROM image';
-//     $pics = $this->executerRequete($sql);
-//     return $pics;
-//   }
+public function savePics($photo, $id) {
+    
+    $sql = "INSERT INTO photos (photo, Property_idProperty) VALUES ('$photo', '$id')";
+    $result = $this->executeRequest($sql);
+ 
+    return $result;
+  }
 
 
 // public function setPic($photo){ 
@@ -34,4 +26,4 @@
 //     $result = $this->executerRequete($sql);
 //     return $result;
 //   }
-// }
+}

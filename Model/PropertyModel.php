@@ -5,14 +5,21 @@ require_once 'Model/Model.php';
 class PropertyModel extends Model {
   // Renvoie la liste des billets du blog
   public function getProperties() {
-    $ville = $_POST['city'];
-    $locOuAchat = $_POST['louer-acheter'];
-    $appartement = $_POST['appartement'];
-    $maison = $_POST['maison'];
-    $prix = $_POST['maxprice'];
-    $superficie = $_POST['superficie'];
-    $pieces = $_POST['pieces'];
-    $chambres = $_POST['chambres'];
+    if (isset($_POST)) {
+      $ville = $_POST['city'];
+      $locOuAchat = $_POST['louer-acheter'];
+      $appartement = $_POST['appartement'];
+      $maison = $_POST['maison'];
+      $prix = $_POST['maxprice'];
+      $superficie = $_POST['superficie'];
+      $pieces = $_POST['pieces'];
+      $chambres = $_POST['chambres'];
+
+      $sql = "SELECT prix, intitule, idProperty FROM Property WHERE etat = '$locOuAchat' AND superficie >= '$superficie' AND pieces >= '$pieces' AND chambres >= '$chambres'";
+    } else {
+      $sql = "SELECT prix, intitule, idProperty FROM Property";
+    }
+  
 
     $_SESSION['ville'] = $ville;
     $_SESSION['louer-acheter'] = $locOuAchat;
@@ -70,25 +77,21 @@ class PropertyModel extends Model {
 
    // Renvoie les informations sur un billet
    public function deleteProperty($idProperty) {
-    $sql = "DELETE FROM Property WHERE idProperty=?";
-    $result = $this->executeRequest($sql, array($idProperty));
+    $sql = "DELETE FROM Property WHERE idProperty=$idProperty";
+    $result = $this->executeRequest($sql);
+
     return $result;  // Accès à la première ligne de résultat
   }
 
 
 
     
-  // addProperty        
-    public function saveProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
+    public function saveProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
     // 
     ){ 
       
-      $sql = "INSERT INTO Property (ville,adresse, code_postal, etat, type, intitule, prix, etage, superficie, pieces, chambres, photos, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description
-      --  
-      ) 
-      VALUES ('$ville',  '$adresse', '$code_postal', '$etat', '$type', '$intitule', '$prix', '$etage', '$superficie', '$pieces', '$chambres', '$photos', '$meuble', '$piscine', '$balcon', '$jardin', '$garage', '$cave', '$ascenseur', '$description'
-      -- 
-      )";
+      $sql = "INSERT INTO Property (ville, adresse, code_postal, etat, type, intitule, prix, etage, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description  
+      ) VALUES ('$ville',  '$adresse', '$code_postal', '$etat', '$type', '$intitule', '$prix', '$etage', '$superficie', '$pieces', '$chambres', '$meuble', '$piscine', '$balcon', '$jardin', '$garage', '$cave', '$ascenseur', '$description')";
       $result = $this->executeRequest($sql); 
 
       return $result;
@@ -96,7 +99,16 @@ class PropertyModel extends Model {
 
 
 
+ // addProperty        
+ public function getIdProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
+ // 
+ ){ 
+   
+   $sql = "SELECT idProperty FROM Property WHERE adresse = '$adresse' AND code_postal = '$code_postal' AND etat = '$etat' AND type = '$type' AND intitule = '$intitule' AND prix = '$prix' AND etage = '$etage' AND superficie = '$superficie' AND pieces = '$pieces' AND chambres = '$chambres' AND meuble = '$meuble' AND piscine = '$piscine' AND balcon = '$balcon' AND jardin = '$jardin' AND garage = '$garage' AND cave = '$cave' AND ascenseur = '$ascenseur' AND description = '$description'";
+   $result = $this->executeRequest($sql); 
 
+   return $result->fetch();
+ }
 
 
 

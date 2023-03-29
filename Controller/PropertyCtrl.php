@@ -1,21 +1,19 @@
 <?php
 
 require_once 'Model/PropertyModel.php';
-// require_once 'Model/PicsModel.php';
+require_once 'Model/PicsModel.php';
 require_once 'View/View.php';
 
 class PropertyCtrl {
 
 
-    // public function Property() {
-    //   $view = new View('Property');
-    //   $view->generate();
-    // }
+  
 
   private $property;
+  private $pics;
   public function __construct() {
     $this->property = new PropertyModel();
-    // $this->pics = new PicsModel();
+    $this->pics = new PicsModel();
   }
 
   public function Properties() {
@@ -58,7 +56,7 @@ class PropertyCtrl {
           $superficie = $_POST['superficie'];
           $pieces = $_POST['pieces'];
           $chambres = $_POST['chambres'];
-          $photos = $_POST['photos'];
+          $photo1 = $_POST['photo1'];
           
           if($_POST['meuble'] == "on"){
             $meuble = 1;
@@ -98,28 +96,53 @@ class PropertyCtrl {
           }else{
             $ascenseur = 0;
           }
-          // $meuble = $_POST['meuble'];
-          // $piscine = $_POST['piscine'];
-          // $balcon = $_POST['balcon'];
-          // $jardin = $_POST['jardin'];
-          // $garage = $_POST['garage'];
-          // $cave = $_POST['cave'];
-          // $ascenseur = $_POST['ascenseur'];
-          $description = $_POST['description'];
+          var_dump($_FILES); 
+        // var_dump($_POST);    
+        $description = $_POST['description'];
 
-          var_dump($_POST);
+        $result = $this->property->saveProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+
+        if($result == true || $result == 1){
+          $targetDir = "Tools/Uploads/";
+                  
+          // Vérifiez si le répertoire d'upload existe sinon le créer
+
+          if(!is_dir($targetDir)) {
+            mkdir($targetDir, 0777, true);
+          }
+
+          $fileName = $_FILES["photo1"]["name"];
+          $fileExtension = strrchr($file_name, ".");
+          $fileTmpName = $_FILES['fichier']['tmp_name'];
+          $fileDestination = "Tools/Uploads/" . $fileName;
+          move_uploaded_file($_FILES['photo1']['tmp_name'],"Tools/Uploads/" . $fileName);
+          if(move_uploaded_file($fileTmpName, $fileDestination)) {
+            echo 'success !';
+            $data = $this->property->getIdProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+            $idProperty = $data['idProperty'];
+            $result = $this->pics->savePics($fileName, $idProperty);
+          } else{
+            echo 'fail';
+          }
+         
+
+
+         
+
+         
           
-        $result = $this->property->saveProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
-        // 
-      );
+  
 
-          $view = new View('Resultat');
-          $view->generate();
-        
-        }
-      else {
-          echo "<p> Une erreur est survenue</p>";
+          if($result == true || $result == 1){
+            $properties = $this->property->getPropertiesBack();
+            $view = new View("Resultat");
+            $view->generate(array('property' => $properties));
+          }
+        } 
       }
+    else {
+      echo "<p> Une erreur est survenue</p>";
+    }
   }
 
     // créer une propriété
@@ -137,7 +160,7 @@ class PropertyCtrl {
 
 //   public function __construct() {
 //     $this->property = new PropertyModel();
-//     $this->pics = new PicsModel();
+
 //   }
 
 //   // Affiche les détails sur un billet

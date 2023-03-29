@@ -1,5 +1,5 @@
 <main>
-        <form method="POST" action="index.php?action=ExecuteAddProperty">
+        <form method="POST" action="index.php?action=ExecuteAddProperty" enctype="multipart/form-data">
                     <h2><i class="fa-solid fa-sliders"></i>Filtrer</h2>
                     <div class="form-control etat">
                         <label for="etat"></label>
@@ -38,7 +38,7 @@
                         </div>
                         <div class='form-control'>
                             <label for="ville">Ville</label>
-                            <input type="text" id="ville" class="mid" name="ville" required>
+                            <input type="text" id="ville" class="mid" name="ville" required readonly>
                         </div>
                     </div>
                     
@@ -71,7 +71,7 @@
                     <div class="form-control" id="file">
                         <label for="photo">Photos</label>
                         <div class="photo-btn">
-                            <input type="file" name="photos" class='photo' multiple>
+                            <input type="file" name="photo1" class='photo'>
                             <div class="photos-list">
                             </div>
                         </div>
