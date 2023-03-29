@@ -60,14 +60,14 @@ class Router {
             }
         }
         catch (Exception $e) {
-            error($e->getMessage());
+            // error($e->getMessage());
       }
 
     }
     
     // Affiche une erreur
     private function error($msgErreur) {
-        $vue = new Vue("Error");
+        $vue = new View("Error");
         $vue->generate(array('msgErreur' => $msgErreur));
     }
 }

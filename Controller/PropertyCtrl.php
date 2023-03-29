@@ -116,7 +116,7 @@ class PropertyCtrl {
     // Montrer le formulaire 
     public function AddProperty() {
       $view = new View('AddProperty');
-      $view->generate($property);
+      $view->generate();
     }
 
 
@@ -124,7 +124,7 @@ class PropertyCtrl {
     // // Montrer le formulaire
     public function EditProperty(){ 
            $view = new View('EditProperty');
-            $view->generate($property);
+            $view->generate();
     }
 
 
@@ -143,6 +143,7 @@ class PropertyCtrl {
             $superficie = $_POST['superficie'];
             $pieces = $_POST['pieces'];
             $chambres = $_POST['chambres'];
+            $photos = $_POST['photos'];
             if($_POST['meuble'] == "on"){
               $meuble = 1;
             }else{
@@ -183,10 +184,10 @@ class PropertyCtrl {
 
             var_dump($_POST);
 
-            $result = $this->property->updateProperty($idProperty, $adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
-
+            $result = $this->property->updateProperty($idProperty, $adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres,$photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
             $view = new View('Resultat');
             $view->generate();
+            return $result;
         }
         else{
             echo "<p> Une erreur est survenue</p>";
