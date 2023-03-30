@@ -1,0 +1,45 @@
+main{
+    position: relative;
+}
+
+section{
+    background: white !important; 
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+    width: 80%;
+    margin: auto;
+    border: 1px solid var(--border);
+    box-shadow: 0 0 5px var(--border);
+    border-radius: 15px ;
+    position:absolute ;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -70%);
+}
+
+section a{
+   background: var(--primary);
+   border: none;
+    font-size: 18px;
+    color: white;
+    border-radius: 10px;
+    padding: 8px 15px;
+    font-weight: 600;
+    transition: 500ms;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none ;
+
+}
+
+a:hover{
+    background: var(--hover);
+    transform: scale(1.01);
+ }
+
+ h2{
+    font-weight: 600;
+    margin-bottom: 5vh;
+ }

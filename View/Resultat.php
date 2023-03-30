@@ -9,10 +9,10 @@
     <section class="search-box">
         <form action='index.php?action=Resultat' method="post">
             <select name="louer-acheter">
-                 <?php if($_POST['louer-acheter'] == 'Achat'){?>
+                 <?php if($_POST['louer-acheter'] == 'Achat' || $_POST['etat'] == 'Achat'){?>
                     <option value="Location">Louer</option>
                     <option value="Achat" selected>Acheter</option>
-                <?php } else if($_POST['louer-acheter'] == 'Location') {?>
+                <?php } else if($_POST['louer-acheter'] == 'Location' || $_POST['etat'] == 'Achat') {?>
                     <option value="Location" selected>Louer</option>
                     <option value="Achat">Acheter</option>
                 <?php } else {?>
@@ -121,7 +121,7 @@
         foreach ($data['pics'] as $pic){
             
         if( $property['idProperty'] == $pic['Property_idProperty'] ){   
-            if(in_array($pic['Property_idProperty'],$thereIsPhoto) == 0){
+            if(in_array($pic['Property_idProperty'],$thereIsPhoto) == false){
         ?>
            
         <img src='Tools/Uploads/<?=$pic['photo']?>' />

@@ -32,7 +32,7 @@
 
     <div class="title">
         <div class="top">
-            <h2><?= $data['intitule']?></h2>
+            <h2><?= $data['property']['intitule']?></h2>
             <span class="prix"><?= $data['property']['prix']?>€</span>
         </div>
         <p class='address'><?= $data['property']['adresse']?></p>

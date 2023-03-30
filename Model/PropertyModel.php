@@ -75,41 +75,51 @@ class PropertyModel extends Model {
       throw new Exception("Property introuvable");
   }
 
-   // Renvoie les informations sur un billet
-   public function deleteProperty($idProperty) {
-    $sql = "DELETE FROM Property WHERE idProperty=$idProperty";
-    $result = $this->executeRequest($sql);
+  
 
-    return $result;  // Accès à la première ligne de résultat
+
+
+  public function saveProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
+  // 
+  ){ 
+    $sql = "INSERT INTO Property (ville, adresse, code_postal, etat, type, intitule, prix, etage, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description  
+    ) VALUES ('$ville',  '$adresse', '$code_postal', '$etat', '$type', '$intitule', '$prix', '$etage', '$superficie', '$pieces', '$chambres', '$meuble', '$piscine', '$balcon', '$jardin', '$garage', '$cave', '$ascenseur', '$description')";
+    $result = $this->executeRequest($sql); 
+
+    return $result;
+
   }
-
-
-
+    public function editProperty($id, $ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
     
-    public function saveProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
-    // 
     ){ 
-      $sql = "INSERT INTO Property (ville, adresse, code_postal, etat, type, intitule, prix, etage, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, description  
-      ) VALUES ('$ville',  '$adresse', '$code_postal', '$etat', '$type', '$intitule', '$prix', '$etage', '$superficie', '$pieces', '$chambres', '$meuble', '$piscine', '$balcon', '$jardin', '$garage', '$cave', '$ascenseur', '$description')";
+
+      $sql = "UPDATE Property SET ville = '$ville', adresse = '$adresse', code_postal = '$code_postal', etat = '$etat', type = '$type', intitule = '$intitule', prix = '$prix', etage = '$etage', superficie = '$superficie', pieces = '$pieces', chambres = '$chambres', meuble = '$meuble', piscine = '$piscine', balcon = '$balcon', jardin = '$jardin', garage = '$garage', cave = '$cave', ascenseur = '$ascenseur', description = '$description' WHERE idProperty = $id";
       $result = $this->executeRequest($sql); 
 
       return $result;
     }
 
 
+   
+
 
  // addProperty        
  public function getIdProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
  // 
  ){ 
-   
    $sql = "SELECT idProperty FROM Property WHERE adresse = '$adresse' AND code_postal = '$code_postal' AND etat = '$etat' AND type = '$type' AND intitule = '$intitule' AND prix = '$prix' AND etage = '$etage' AND superficie = '$superficie' AND pieces = '$pieces' AND chambres = '$chambres' AND meuble = '$meuble' AND piscine = '$piscine' AND balcon = '$balcon' AND jardin = '$jardin' AND garage = '$garage' AND cave = '$cave' AND ascenseur = '$ascenseur' AND description = '$description'";
    $result = $this->executeRequest($sql); 
 
    return $result->fetch();
  }
 
+ // Renvoie les informations sur un billet
+ public function deleteProperty($idProperty) {
+  $sql = "DELETE FROM Property WHERE idProperty=$idProperty";
+  $result = $this->executeRequest($sql);
 
+  return $result;  // Accès à la première ligne de résultat
+}
 
     // public function EditProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description
     // // 
@@ -138,8 +148,9 @@ class PropertyModel extends Model {
 
     public function getPropertiesBack()
     {
-      $ville = $_SESSION['ville'];
-      $locOuAchat = $_SESSION['louer-acheter'] ;
+      if (isset($_POST['etat'])) {
+        $ville = $_SESSION['ville'];
+      $locOuAchat = $_POST['etat'] ;
       $appartement = $_SESSION['appartement'];
       $maison = $_SESSION['maison'];
       $prix = $_SESSION['maxprice'] ;
@@ -177,6 +188,10 @@ class PropertyModel extends Model {
       $params[] = 'Maison';
     }
 
+      } else{
+        $sql = "SELECT prix, intitule, idProperty FROM Property";
+      }
+      
      $properties = $this->executeRequest($sql, $params)->fetchAll(PDO::FETCH_ASSOC);
      return $properties;
     }

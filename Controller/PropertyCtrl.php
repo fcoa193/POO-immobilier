@@ -43,11 +43,17 @@ class PropertyCtrl {
       // $view->generate(array('property' => $property));
     // }
 
+    public function AddProperty() {
+      $view = new View('AddProperty');
+      $view->generate($property);
+    }
+
+
       public function ExecuteAddProperty(){
         if (!empty($_POST)) {
           // Récupérer les informations de la propriété à partir du formulaire
           
-          
+      
           $ville = $_POST['ville'];
           $adresse = $_POST['adresse'];
           $code_postal = $_POST['code_postal'];
@@ -59,7 +65,7 @@ class PropertyCtrl {
           $superficie = $_POST['superficie'];
           $pieces = $_POST['pieces'];
           $chambres = $_POST['chambres'];
-          $photo1 = $_POST['photo1'];
+          // $photo1 = $_POST['photo1'];
           
           if ($ville != NULL || $ville != "" ) {
          
@@ -81,7 +87,6 @@ class PropertyCtrl {
           }else{
             $balcon = 0;
           }
-
           if($_POST['jardin'] == "on"){
             $jardin = 1;
           }else{
@@ -102,6 +107,7 @@ class PropertyCtrl {
           }else{
             $ascenseur = 0;
           }
+
           // var_dump($_FILES); 
         // var_dump($_POST);    
         $description = $_POST['description'];
@@ -112,28 +118,30 @@ class PropertyCtrl {
           $targetDir = "Tools/Uploads/";
                   
           // Vérifiez si le répertoire d'upload existe sinon le créer
-
+        
           if(!is_dir($targetDir)) {
             mkdir($targetDir, 0777, true);
           }
           
-          for ($i=1; $i <5 ; $i++) { 
+          for ($i=1; $i <5 ; $i++) {
+            
             $fileName = $_FILES["photo$i"]["name"];
             $fileTmpName = $_FILES["photo$i"]['tmp_name'];
             $fileDestination = "Tools/Uploads/" . $fileName;
-          
+         
             if(move_uploaded_file($fileTmpName, $fileDestination)) {
               $data = $this->property->getIdProperty($ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
               $idProperty = $data['idProperty'];
               $result = $this->pics->savePics($fileName, $idProperty);
             } else{
-             
             }
           }
-          
+          // header('location : index.php');
             $properties = $this->property->getPropertiesBack();
+            // header('Location : index.php');
             $pics = $this->pics->getPics();
             $view = new View("Resultat");
+            // header('location : index.php');
 
 
             $view->generate(array('property' => $properties, 
@@ -148,73 +156,105 @@ class PropertyCtrl {
   }
   }
 
+  // public function Success()
+  // {
+  //   $view = 
+  // }
+  
     // créer une propriété
     
-    public function AddProperty() {
-      $view = new View('AddProperty');
-      $view->generate($property);
-    }
-
-
-
-  // private $property;
-//   private $pics;
-
-
-//   public function __construct() {
-//     $this->property = new PropertyModel();
-
-//   }
-
-//   // Affiche les détails sur un billet
-//   public function Property($idProperty) {
-//     $property = $this->property->getProperty($idProperty);
-//     $pics = $this->pics->getPics($idProperty);
-//     $view = new View("Property");
-//     $view->generate();
-//   }
-
-
-
+   
     // // Mettre à jour une propriété
     public function EditProperty(){ 
-           $view = new View('EditProperty');
-            $view->generate();
-    //     $idProperty = $_GET['idProperty'];
-  
-    //     if (!empty($_POST)) {
-    // // Récupérer les informations de l'employe à partir du formulaire
-    //         $adresse = $_POST['adresse'];
-    //         $code_postal = $_POST['code_postal'];
-    //         $ville = $_POST['ville'];
-    //         $etat = $_POST['etat'];
-    //         $type = $_POST['type'];
-    //         $prix = $_POST['prix'];
-    //         $etage = $_POST['etage'];
-    //         $superficie = $_POST['superficie'];
-    //         $pieces = $_POST['pieces'];
-    //         $chambres = $_POST['chambres'];
-    //         $meuble = $_POST['meuble'];
-    //         $piscine = $_POST['piscine'];
-    //         $balcon = $_POST['balcon'];
-    //         $jardin = $_POST['jardin'];
-    //         $garage = $_POST['garage'];
-    //         $cave = $_POST['cave'];
-    //         $ascenseur = $_POST['ascenseur'];
-    //         $description = $_POST['description'];
-
-    //         $result = $this->property->updateProperty($adresse, $code_postal, $ville, $etat, $type, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
-
-
-    //         $property = $this->property->getProperty($idProperty);
-    //         $view = new View('EditProperty');
-    //         $view->generate();
-    //     }
-    //     else{
-    //         echo "<p> Une erreur est survenue</p>";
-    //     }
+      $idProperty = $_GET['id'];
+      $property = $this->property->getProperty($idProperty);
+      $view = new View('EditProperty');
+      $view->generate(array('property' => $property));
+     
     }
 
+    public function ExecuteEditProperty(){
+      if (!empty($_POST)) {
+        // Récupérer les informations de la propriété à partir du formulaire
+        $idProperty = $_GET['id'];
+        $ville = $_POST['ville'];
+        $adresse = $_POST['adresse'];
+        $code_postal = $_POST['code_postal'];
+        $etat = $_POST['etat'];
+        $type = $_POST['type'];
+        $intitule = $_POST['intitule'];
+        $prix = $_POST['prix'];
+        $etage = $_POST['etage'];
+        $superficie = $_POST['superficie'];
+        $pieces = $_POST['pieces'];
+        $chambres = $_POST['chambres'];
+        // $photo1 = $_POST['photo1'];
+        
+        if ($ville != NULL || $ville != "" ) {
+        if($_POST['meuble'] == "on"){
+          $meuble = 1;
+        }else{
+          $meuble = 0;
+        }
+
+        if($_POST['piscine'] == "on"){
+          $piscine = 1;
+        }else{
+          $piscine = 0;
+        }
+        
+        if($_POST['balcon'] == "on"){
+          $balcon = 1;
+        }else{
+          $balcon = 0;
+        }
+
+        if($_POST['jardin'] == "on"){
+          $jardin = 1;
+        }else{
+          $jardin = 0;
+        }
+        if($_POST['garage'] == "on"){
+          $garage = 1;
+        }else{
+          $garage = 0;
+        }
+        if($_POST['cave'] == "on"){
+          $cave = 1;
+        }else{
+          $cave = 0;
+        }
+        if($_POST['ascenseur'] == "on"){
+          $ascenseur = 1;
+        }else{
+          $ascenseur = 0;
+        }
+        // var_dump($_FILES); 
+      // var_dump($_POST);    
+      $description = $_POST['description'];
+
+      $result = $this->property->editProperty($idProperty, $ville, $adresse, $code_postal, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+    
+
+      if($result == true || $result == 1){
+
+        // header('location : index.php');
+          $properties = $this->property->getPropertiesBack();
+          // header('Location : index.php');
+          $pics = $this->pics->getPics();
+          $view = new View("Resultat");
+          // header('location : index.php');
+          $view->generate(array('property' => $properties, 
+            'pics' => $pics
+          ));  
+        
+      } 
+    }
+  else {
+    echo "<p> Une erreur est survenue</p>";
+  }
+}
+}
 
     // Supprimer une propriété
     public function DeleteProperty() {
@@ -223,8 +263,9 @@ class PropertyCtrl {
       
       if($result == true || $result == 1){
         $properties = $this->property->getPropertiesBack();
+        $pics = $this->pics->getPics();
         $view = new View("Resultat");
-        $view->generate(array('property' => $properties));
+        $view->generate(array('property' => $properties, 'pics' => $pics));
       }
 
 

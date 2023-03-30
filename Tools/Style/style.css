@@ -72,7 +72,7 @@ a.logoHeader:hover {
     color: var(--primary);
     font-size: 18px;
     text-decoration: none;
-    padding: 20px 10px;
+    padding: 20px 0;
     margin-right: 10px;
 }
 
@@ -147,6 +147,11 @@ justify-content: center;
     /* .divHeader {
         justify-content: space-evenly;
     } */
+    .divHeader a{
+
+        padding: 20px 10px;
+
+    }
 
     .divHeader a span{
         display: inline;

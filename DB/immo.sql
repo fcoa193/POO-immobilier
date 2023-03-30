@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `immo`.`photos` (
   CONSTRAINT `fk_photos_Property1`
     FOREIGN KEY (`Property_idProperty`)
     REFERENCES `immo`.`Property` (`idProperty`)
-    ON DELETE NO ACTION
+    ON DELETE CASCADE
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
@@ -75,6 +75,7 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
+INSERT INTO Admin (identifiant, password) VALUES ('admin', '$2y$10$Fscf7ylMSOecMCyXefVck.1WCRbIj9/zMOkoYjno0NYAPF.gMrLCe')
 
 INSERT INTO Property (adresse, code_postal, ville, etat, type, intitule, prix, superficie, pieces, chambres, meuble, piscine, balcon, jardin, garage, cave, ascenseur, etage, description) VALUES
 ('5 rue de la paix', '38000', 'Grenoble', 'Location', 'Appartement', 'Joli appart', 760, 62, 3, 2, 0, 0, 1, 0, 1, 1, 1, 7, "Appartement proche de toutes commodité (transport, écoles, commerces), se situant à 2 pas du centre historique de Grenoble. Le quartier est calme et résidentiel et bénéficie d'une atmosphère familiale. L'appratement est agréable et lumineux et est idéal pour un jeune couple ou une collocation étudiante."),
