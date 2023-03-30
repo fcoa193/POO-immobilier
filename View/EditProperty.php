@@ -1,5 +1,10 @@
-<main>
-        <form method="POST" action="index.php?action=ExecuteEditProperty">
+<main>                
+    <?php var_dump($idProperty);
+
+                ?>
+        <form method="POST" action="index.php?action=ExecuteEditProperty&id=<?=$idProperty?>">
+
+
                     <h2><i class="fa-solid fa-sliders"></i>Filtrer</h2>
                     <div class="form-control etat">
                         <label for="etat"></label>
@@ -41,7 +46,8 @@
                             <input type="text" id="ville" class="mid" name="ville" required>
                         </div>
                     </div>
-                    
+
+                    <input id="hidden" name='hidden' type="text" value="<?=$property['idProperty']?>">
                     
                     <div class="form-control">
                         <label for="maxprice">Prix max</label>

@@ -5,6 +5,7 @@ class View {
 private $file;
 // Titre de la vue (défini dans le fichier vue)
 private $title;
+private $style;
 
 public function __construct($action, $errorLogin = Null) {
   if($action == 'AddProperty' || $action == 'EditProperty'){
@@ -41,7 +42,7 @@ switch ($action) {
   $this->file = "View/" . $action . ".php";
 
   // Message d'erreur de connexion
-  $this->errorLogin = $errorLogin;
+  // $this->errorLogin = $errorLogin;
 }
 
 // Génère et affiche la vue

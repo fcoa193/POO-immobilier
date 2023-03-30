@@ -5,6 +5,7 @@ require_once 'View/View.php';
 class LoginCtrl {
   public function __construct() {
     $this->admin = new AdminModel();
+
   }
 
   public function Login() {

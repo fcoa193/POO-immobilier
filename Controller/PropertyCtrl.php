@@ -124,14 +124,26 @@ class PropertyCtrl {
     // // Montrer le formulaire
     public function EditProperty(){ 
            $view = new View('EditProperty');
-            $view->generate();
+           $idProperty = $_GET['id'];
+
+           $property = $this->property->getProperty($idProperty);
+
+            $view->generate(array('test'=>$property, 'idProperty'=>$idProperty));
     }
 
+    // public function getId(){
+    //   $idProperty = $_GET['id'];
+    //   var_dump($idProperty);
+    //   return $idProperty;
+    // }
 
     public function ExecuteEditProperty(){
+      // var_dump($_POST);
+
         if (!empty($_POST)) {
-    // Récupérer les informations de l'employe à partir du formulaire
             $idProperty = $_GET['id'];
+            var_dump($idProperty);
+    // Récupérer les informations de l'employe à partir du formulaire
             $adresse = $_POST['adresse'];
             $code_postal = $_POST['code_postal'];
             $ville = $_POST['ville'];
@@ -182,11 +194,13 @@ class PropertyCtrl {
             $description = $_POST['description'];
 
 
-            var_dump($_POST);
 
-            $result = $this->property->updateProperty($idProperty, $adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres,$photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
             $view = new View('Resultat');
             $view->generate();
+
+            $result = $this->property->updateProperty($idProperty, $adresse, $code_postal, $ville, $etat, $type, $intitule, $prix, $etage, $superficie, $pieces, $chambres,$photos, $meuble, $piscine, $balcon, $jardin, $garage, $cave, $ascenseur, $description);
+
+
             return $result;
         }
         else{
